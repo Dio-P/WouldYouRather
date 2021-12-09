@@ -4,38 +4,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 // import { Provider } from 'react-redux'
-import { createStore } from "redux"
+import { createStore } from "redux";
+import allReducers from './Reducers';
 
-// let store = createStore(counter)
+const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
 
-// actions
-const increment = ()=>{
-  return {
-    type: "INCREMENT"
-  }
-}
 
-const decrement = ()=>{
-  return {
-    type: "DECREMENT"
-  }
-}
-
-// reducer
-const counter = (state = 0, action ) => {
-  switch(action.type){
-    case "INCREMENT":
-      return state + 1;
-    case "DECREMENT":
-      return state - 1;
-  }
-}
-
-let store = createStore(counter);
-
-store.subscribe(()=> console.log(store.getState()));
-
-store.dispatch(increment());
+let store = createStore(allReducers, 
+  composeEnhancers.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+   );
 
 ReactDOM.render(
   <React.StrictMode>
