@@ -18,7 +18,7 @@ let store = createStore(allReducers,
 
 ReactDOM.render(
   <Provider store={store}>
-    <React.StrictMode store={store}>
+    <React.StrictMode>
       <App />
     </React.StrictMode>
   </Provider>,
