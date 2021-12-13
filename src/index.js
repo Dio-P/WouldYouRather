@@ -5,7 +5,9 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 // import { Provider } from 'react-redux'
 import { createStore } from "redux";
+// import { StoreContext } from "./context";
 import allReducers from './Reducers';
+import { Provider } from "react-redux";
 
 const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
 
@@ -15,9 +17,11 @@ let store = createStore(allReducers,
    );
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Provider store={store}>
+    <React.StrictMode store={store}>
+      <App />
+    </React.StrictMode>
+  </Provider>,
   document.getElementById('root')
 );
 
