@@ -15,7 +15,7 @@ function App() {
       <button onClick={()=> dispatch(increment(5))}>+</button>
       <button onClick={()=> dispatch(decrement())}>-</button>
 
-      logedIn===true? <h3>Valuable indo I should see if not loged in</h3>: ""
+      {logedIn===true? <h3>Valuable info I shouldn't see if not loged in</h3>: ""}
     </div>
   );
 }
