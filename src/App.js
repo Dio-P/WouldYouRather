@@ -32,8 +32,8 @@ function App() {
         
         
       {/* </Routes> */}
-    {/* </Router> */}
-    </div>
+  {/* </Router> */}
+  </div>
   );
 }
 
