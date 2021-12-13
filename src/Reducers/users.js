@@ -35,5 +35,14 @@ let users = (state={
       }
 
 }, action)=>{
+    switch(action.type){
+        case "GETUSERS":
+            return state + "I got the users";
+            default: {
+                return state;
+            }
+    }
     
   }
+
+  export default users;

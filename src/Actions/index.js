@@ -11,9 +11,15 @@
 //     }
 // }
 //////////////////////////////////////////
-export function _getUsers () {
-    return new Promise((res, rej) => {
-      setTimeout(() => res({...users}), 1000)
-      console.log("res_getUsers", res)
-    })
-  }
+// export function _getUsers () {
+//     return new Promise((res, rej) => {
+//       setTimeout(() => res({...users}), 1000)
+//       console.log("res_getUsers", res)
+//     })
+//   }
+
+export const gettingUsers = () => {
+    return{
+        type: "GETUSERS"
+    }
+}
