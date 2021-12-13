@@ -3,9 +3,11 @@ import './App.css';
 import {  useSelector, useDispatch } from "react-redux";
 import {  increment, decrement } from "./Actions";
 import LogInPage from './loginPage';
+import GamePage from './Game';
 import {
   Route,
-  Routes
+  Routes,
+  Router
 } from "react-router-dom";
 
 
@@ -16,11 +18,21 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Counter {counter}</h1>
-      <button onClick={()=> dispatch(increment(5))}>+</button>
-      <button onClick={()=> dispatch(decrement())}>-</button>
+    {/* <Router> */}
+      {/* <Routes> */}
+        {/* <h1>Counter {counter}</h1>
+        <button onClick={()=> dispatch(increment(5))}>+</button>
+        <button onClick={()=> dispatch(decrement())}>-</button> */}
 
-      {logedIn===true? <h3>Valuable info I shouldn't see if not loged in</h3>: "Login box (chouse who you are)"}
+        {logedIn===true? "Game Page": "Login page"}
+          {/* <Route path="/" element={<GamePage/>}/> */}
+          
+          
+        {/* <Route path="LogInPage" element={<LogInPage/>}/> */}
+        
+        
+      {/* </Routes> */}
+    {/* </Router> */}
     </div>
   );
 }
