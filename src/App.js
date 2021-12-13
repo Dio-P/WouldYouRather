@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import {  useSelector, useDispatch } from "react-redux";
-import {  increment, decrement } from "./Actions";
+import {  increment, decrement, _getUsers } from "./Actions";
 import LogInPage from './loginPage';
 import GamePage from './Game';
 import {
@@ -18,11 +18,11 @@ function App() {
 
   return (
     <div className="App">
-    {/* <Router> */}
       <Routes>
         {/* <h1>Counter {counter}</h1>
         <button onClick={()=> dispatch(increment(5))}>+</button>
         <button onClick={()=> dispatch(decrement())}>-</button> */}
+        <button onClick={()=> dispatch(_getUsers())}> Test</button>
 
         {logedIn===true? 
           <Route path="/" element={<GamePage/>}/>
@@ -32,7 +32,6 @@ function App() {
         }
         
       </Routes>
-  {/* </Router> */}
   </div>
   );
 }
