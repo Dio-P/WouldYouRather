@@ -8,6 +8,12 @@ import { createStore } from "redux";
 // import { StoreContext } from "./context";
 import allReducers from './Reducers';
 import { Provider } from "react-redux";
+import {
+  BrowserRouter,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 /////////////////////
 

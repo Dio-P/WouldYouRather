@@ -19,19 +19,19 @@ function App() {
   return (
     <div className="App">
     {/* <Router> */}
-      {/* <Routes> */}
+      <Routes>
         {/* <h1>Counter {counter}</h1>
         <button onClick={()=> dispatch(increment(5))}>+</button>
         <button onClick={()=> dispatch(decrement())}>-</button> */}
 
-        {logedIn===true? "Game Page": "Login page"}
-          {/* <Route path="/" element={<GamePage/>}/> */}
+        {logedIn===true? 
+          <Route path="/" element={<GamePage/>}/>
+          :
           
-          
-        {/* <Route path="LogInPage" element={<LogInPage/>}/> */}
+        <Route path="LogInPage" element={<LogInPage/>}/>
+        }
         
-        
-      {/* </Routes> */}
+      </Routes>
   {/* </Router> */}
   </div>
   );
