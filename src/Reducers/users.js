@@ -1,4 +1,4 @@
-let users = (state={
+let users = (state=[{
 
     sarahedo: {
         id: 'sarahedo',
@@ -34,7 +34,7 @@ let users = (state={
         questions: ['6ni6ok3ym7mf1p33lnez', 'xj352vofupe1dqz9emx13r'],
       }
 
-}, action)=>{
+}], action)=>{
     switch(action.type){
         case "GETUSERS":
             return state;
