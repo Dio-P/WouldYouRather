@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import {  useSelector, useDispatch } from "react-redux";
-import {  increment, decrement, _getUsers, gettingUsers } from "./Actions";
+import { _getUsers, gettingUsers } from "./Actions";
 import LogInPage from './loginPage';
 import GamePage from './Game';
 import {
@@ -19,8 +19,7 @@ function App() {
 
   return (
     <div className="App">
-      <button onClick={()=> dispatch(gettingUsers())}> Test</button>
-      <h1>Users {JSON.stringify(users)}</h1>
+      
       <Routes>
         {/* <h1>Counter {counter}</h1>
         <button onClick={()=> dispatch(increment(5))}>+</button>

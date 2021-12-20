@@ -37,7 +37,7 @@ let users = (state={
 }, action)=>{
     switch(action.type){
         case "GETUSERS":
-            return state + "I got the users";
+            return state;
             default: {
                 return state;
             }
