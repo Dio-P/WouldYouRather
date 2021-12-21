@@ -23,3 +23,10 @@ export const gettingUsers = () => {
         type: "GETUSERS"
     }
 }
+
+export const login_id = (Login_Id) => {
+    return{
+        type: "LOGIN_AS",
+        payload: Login_Id
+    }
+}

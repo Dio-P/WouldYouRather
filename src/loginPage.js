@@ -1,5 +1,5 @@
 import {  useSelector, useDispatch } from "react-redux";
-import { _getUsers, gettingUsers } from "./Actions";
+import { _getUsers, gettingUsers, login_id } from "./Actions";
 
 const LogInPage= () => {
 
@@ -10,6 +10,7 @@ const LogInPage= () => {
         event.preventDefault()
         let loginID= event.target.value;
         console.log("loginID", loginID)
+        login_id(loginID)
 
 
     }
