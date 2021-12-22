@@ -24,6 +24,12 @@ export const gettingUsers = () => {
     }
 }
 
+export const giveUserDetails = () => {
+    return{
+        type: "GIV_LOG_DETAILS"
+    }
+}
+
 export const login_id = (Login_Id) => {
     return{
         type: "LOGIN_AS",

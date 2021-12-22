@@ -1,16 +1,19 @@
 import {  useSelector, useDispatch } from "react-redux";
-import { _getUsers, gettingUsers, login_id } from "./Actions";
+import { getUsers, gettingUsers, login_id, giveUserDetails,  } from "./Actions";
 
 const LogInPage= () => {
 
+    let loginID="one"
+
     const users = useSelector(state=> state.getUsers)
+    const partID = useSelector(state=> state.logID)
     const dispatch = useDispatch();
 
     const login = (event) =>{
         event.preventDefault()
-        let loginID= event.target.value;
+        loginID= event.target.value;
         console.log("loginID", loginID)
-        login_id(loginID)
+        dispatch(login_id(loginID))
 
 
     }
@@ -18,7 +21,9 @@ const LogInPage= () => {
     return(
         <div>
             <button onClick={()=> dispatch(gettingUsers())}> Test</button>
+            <button onClick={()=> dispatch(login_id(Login_Id))}> UserDetTest</button>
             <h1>Users {JSON.stringify(Object.values(users)[0].name)}</h1>
+            <h2> particular Id : {partID}</h2>
             <h1>LogInPage</h1>
             <select name="userId" 
             onChange={(event)=>login(event)}>
