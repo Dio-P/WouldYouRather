@@ -21,7 +21,7 @@ const LogInPage= () => {
     return(
         <div>
             <button onClick={()=> dispatch(gettingUsers())}> Test</button>
-            <button onClick={()=> dispatch(login_id())}> UserDetTest</button>
+            <button onClick={()=> dispatch(login_id(loginID))}> UserDetTest</button>
             <h1>Users {JSON.stringify(Object.values(users)[0].name)}</h1>
             <h2> particular Id : {partID}</h2>
             <h1>LogInPage</h1>
