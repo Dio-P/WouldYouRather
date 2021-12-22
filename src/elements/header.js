@@ -12,6 +12,7 @@ const Header = () => {
             :
             <button id="logOnOffBtn">Log In</button>}  
             {/* have the previous action, of clicking on a name, changing the login status */}
+            {/* now the previous step is done but the button does not rerender */}
             {/* have this button do different things */}
             {/* add the additional information we nead on the header */}
             {/* the login page should not have a header, 
