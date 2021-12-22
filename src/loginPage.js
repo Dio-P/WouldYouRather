@@ -1,5 +1,6 @@
 import {  useSelector, useDispatch } from "react-redux";
 import { getUsers, gettingUsers, login_id, giveUserDetails,  } from "./Actions";
+import Header from "./elements/header";
 
 const LogInPage= () => {
 
@@ -20,6 +21,7 @@ const LogInPage= () => {
 
     return(
         <div>
+            <Header/>
             <button onClick={()=> dispatch(gettingUsers())}> Test</button>
             {/* <button onClick={()=> dispatch(login_id(loginID))}> UserDetTest</button> */}
             <h1>Users {JSON.stringify(Object.values(users)[0].name)}</h1>
