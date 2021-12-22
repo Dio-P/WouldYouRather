@@ -14,6 +14,9 @@ const Header = () => {
             {/* have the previous action, of clicking on a name, changing the login status */}
             {/* have this button do different things */}
             {/* add the additional information we nead on the header */}
+            {/* the login page should not have a header, 
+            the header needs to be removed only on the game and other pages. 
+            Or it could have, it does not really matter */}
         </div>
     )
 }

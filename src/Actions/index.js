@@ -36,3 +36,9 @@ export const login_id = (Login_Id) => {
         payload: Login_Id
     }
 }
+
+export const signIn = ()=> {
+    return{
+        type: "SIGN_IN"
+    }
+}
