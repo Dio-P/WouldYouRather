@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react"
 import {  useSelector, useDispatch, connect } from "react-redux";
+import { signIn } from "../Actions";
 import "../style/header.css"
 const mapStateToProps = state => { 
     return {
@@ -11,13 +12,14 @@ const mapStateToProps = state => {
 const Header = (props) => {
 
     const logedOrNot = useSelector(state=> state.isLogged)
+    const dispatch = useDispatch();
 
 
 
     return(
         <div id="header">
             {(logedOrNot===true)?  
-            <button id="logOnOffBtn">Log Off</button>
+            <button id="logOnOffBtn" onClick={()=>dispatch(signIn())}>Log Off</button>
             :
             <button id="logOnOffBtn">Log In</button>}  
             {/* have the previous action, of clicking on a name, changing the login status */}
