@@ -1,17 +1,22 @@
 import React, {useState, useEffect} from "react"
 import {  useSelector, useDispatch, connect } from "react-redux";
 import "../style/header.css"
+const mapStateToProps = state => { 
+    return {
+        logedOrNot: state.isLogged 
+    }
+}
 
-const Header = () => {
+
+const Header = (props) => {
 
     const logedOrNot = useSelector(state=> state.isLogged)
 
-    const mapStateToProps = (state) => ({ logedOrNot: state.isLogged })
 
 
     return(
         <div id="header">
-            {(logedOrNot==="true")?  
+            {(logedOrNot===true)?  
             <button id="logOnOffBtn">Log Off</button>
             :
             <button id="logOnOffBtn">Log In</button>}  
@@ -26,4 +31,4 @@ const Header = () => {
     )
 }
 
-export default Header
+export default connect(mapStateToProps)(Header);
