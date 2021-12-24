@@ -11,6 +11,8 @@ const mapStateToProps = state => {
 
 const Header = (props) => {
 
+    const users = useSelector(state=> state.getUsers)
+    const partID = useSelector(state=> state.logID)
     const logedOrNot = useSelector(state=> state.isLogged)
     const dispatch = useDispatch();
 
@@ -19,7 +21,7 @@ const Header = (props) => {
     return(
         <div id="header">
             {(logedOrNot===true)?  
-            <button id="logOnOffBtn" onClick={()=>dispatch(signIn())}>Log Off</button>
+            (<div> You are loged on as {partID} <button id="logOnOffBtn" onClick={()=>dispatch(signIn())}>Log Off</button> </div>)
             :
             <button id="logOnOffBtn">Log In</button>}  
             {/* have the previous action, of clicking on a name, changing the login status */}
