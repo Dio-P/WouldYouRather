@@ -6,6 +6,7 @@ const GamePage = () => {
 
     const users = useSelector(state=> state.getUsers)
     const partID = useSelector(state=> state.logID)
+    const questionsData = useSelector(state=> state.getQuestions)
     const dispatch = useDispatch();
 
 // make the chosen user name presented on the header if loged is true
@@ -15,6 +16,9 @@ const GamePage = () => {
         <div>
             <Header/>
             <h1>Game Page</h1>
+            <div>
+            questionsData:{JSON.stringify(questionsData)}
+            </div>
         </div>
     )
 }
