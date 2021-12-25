@@ -17,7 +17,7 @@ const GamePage = () => {
             <Header/>
             <h1>Game Page</h1>
             <div>
-            questionsData:{JSON.stringify(questionsData)}
+            questionsData:{JSON.stringify(Object.values(questionsData)[0])}
             </div>
         </div>
     )
