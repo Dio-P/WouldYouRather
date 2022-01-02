@@ -1,5 +1,5 @@
 import {  useSelector, useDispatch } from "react-redux";
-
+import "../style/allBoxes.css";
 
 const QuestionBox = () => {
 
@@ -17,9 +17,9 @@ const QuestionBox = () => {
     }
 
     return(
-        <div>
-            <div>
-                <img src={users[partID].avatarURL} alt="a random user avatar"/>
+        <div class="mainBox">
+            <div id="avatarHolder"> 
+                <img id="userAvatar" src={users[partID].avatarURL} alt="a random user avatar"/>
             </div>
             <fieldset onChange={(event)=> returningAnswer(event)}>
                 <div>

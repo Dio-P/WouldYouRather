@@ -1,0 +1,13 @@
+.mainBox {
+    display:flex;
+    border: solid blue;
+    width: 500px;
+}
+
+#avatarHolder {
+    width: 120px;
+}
+
+#userAvatar {
+    width: 100%
+}

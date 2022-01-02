@@ -4,6 +4,10 @@ import Header from "./elements/header";
 import QuestionBox from "./pages and elements/answeringQuestionBox";
 // import _DATA.js from "./_DATA"
 // from the data ask the .idName.name
+import {_saveQuestionAnswer,
+        _saveQuestion,
+        _getQuestions,
+        _getUsers} from "./_DATA"
 
 const GamePage = () => {
 
@@ -12,6 +16,11 @@ const GamePage = () => {
     const questionsData = useSelector(state=> state.getQuestions)
     const dispatch = useDispatch();
 
+    const testingFunctions=()=> {
+        const q = _getQuestions();
+        console.log("q", q);
+    }
+
 // make the chosen user name presented on the header if loged is true
 // start adding functionality on the game page
 
@@ -19,6 +28,7 @@ const GamePage = () => {
         <div>
             <Header/>
             <h1>Game Page</h1>
+            <button onClick={()=> testingFunctions()}>Test</button>
             {JSON.stringify(Object.values(questionsData))}
             {JSON.stringify(Object.values(users))}
             <QuestionBox/>
