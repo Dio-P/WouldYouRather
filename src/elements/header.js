@@ -21,7 +21,7 @@ const Header = (props) => {
     return(
         <div id="header">
             {(logedOrNot===true)?  
-            (<div> You are loged on as {partID} <button id="logOnOffBtn" onClick={()=>dispatch(signIn())}>Log Off</button> </div>)
+            (<div> You are loged on as {users[partID].name} <button id="logOnOffBtn" onClick={()=>dispatch(signIn())}>Log Off</button> </div>)
             :
             <button id="logOnOffBtn">Log In</button>}  
             {/* have the previous action, of clicking on a name, changing the login status */}
