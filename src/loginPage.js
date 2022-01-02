@@ -31,7 +31,7 @@ const LogInPage= () => {
             <select name="userId" 
             onChange={(event)=>login(event)}>
                 {Object.values(users).map(user=>(
-                 <option value={user.name}>{user.name}</option>
+                 <option value={user.id}>{user.name}</option>
                 ))}
             </select>
         </div>
