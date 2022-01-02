@@ -17,8 +17,9 @@ const GamePage = () => {
     const dispatch = useDispatch();
 
     const testingFunctions=()=> {
-        const q = _getQuestions();
-        console.log("q", q);
+        _getQuestions().then(data=>{const q = data;
+            console.log("q", q);
+        })
     }
 
 // make the chosen user name presented on the header if loged is true
