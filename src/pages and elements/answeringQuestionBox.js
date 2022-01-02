@@ -4,6 +4,10 @@ import {  useSelector, useDispatch } from "react-redux";
 const QuestionBox = () => {
 
     const questionsData = useSelector(state=> state.getQuestions)
+    const users = useSelector(state=> state.getUsers)
+    const partID = useSelector(state=> state.logID)
+
+
 
     const returningAnswer = (event) => {
         event.preventDefault()
@@ -14,6 +18,9 @@ const QuestionBox = () => {
 
     return(
         <div>
+            <div>
+                <img src={users[partID].avatarURL} alt="a random user avatar"/>
+            </div>
             <fieldset onChange={(event)=> returningAnswer(event)}>
                 <div>
                 <input type= "checkbox" id="a1" name="a1" value="optionOne"/>
