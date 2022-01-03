@@ -1,23 +1,27 @@
+import {useState} from "react"
+
 const CreateQuestionForm =() => {
 
-    const textOptionOne = (event) =>{
-        event.preventDefault();
-        const optionOneText = event.target.value;
-        console.log("optionOneText", optionOneText);
-        return optionOneText;
-    }
+    const [optionOneText, setOptionOneText] = useState("");
+    const [optionTwoTezt, setOptionTwoText] = useState("");
 
-    const textOptionTwo = (event) => {
-        event.preventDefault();
-        const optionTwoText = event.target.value;
-        console.log("optionTwoText", optionTwoText);
-    }
+  const formSubmit = (event) => {
+      event.preventDefault();
+
+  }
 
     return(
         <div>
-            <form>
-                <input type="text" onChange={(event)=> textOptionOne}/>
-                <input/>
+            <h1>Form for adding question</h1>
+            <form onSubmit={formSubmit}> 
+                <label>
+                    Option One Text
+                    <input type="text" value="textOptionOne"/>
+                </label>
+                <label>
+                    Option Two Text
+                    <input type="text" value="textOptionTwo"/>
+                </label>
             </form>
         </div>
     )
