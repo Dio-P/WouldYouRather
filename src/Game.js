@@ -1,7 +1,7 @@
 import {  useSelector, useDispatch } from "react-redux";
 import { getUsers, gettingUsers, login_id, giveUserDetails, signIn  } from "./Actions";
 import Header from "./elements/header";
-import QuestionBox from "./elements/questionsBoxElement";
+import QuestionBox from "./elements/answeringQuestionBox";
 // import _DATA.js from "./_DATA"
 // from the data ask the .idName.name
 import {_saveQuestionAnswer,
