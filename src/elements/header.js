@@ -29,6 +29,7 @@ const Header = (props) => {
             :
             <button id="logOnOffBtn">Log In</button>} 
            <Link to="leaderboard"><button> LeaderBoard </button></Link> 
+           <Link to="/add"><button> Add Question </button></Link>
         </div>
     )
 }

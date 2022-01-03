@@ -11,6 +11,7 @@ import {
 } from "react-router-dom";
 import LeaderBox from './elements/leaderboardBoxElement';
 import LeaderboardPage from './pages/leaderboard';
+import CreateQuestionForm from './pages/createNewPollForm';
 
 const mapStateToProps = state => { 
   return {
@@ -42,6 +43,7 @@ function App() {
         <Route path="/" element={<LogInPage/>}/>
         }
         <Route path="leaderboard" element={<LeaderboardPage/>}/>
+        <Route path="/add" element={<CreateQuestionForm/>}/>
 
         
       </Routes>
