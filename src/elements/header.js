@@ -1,7 +1,11 @@
 import React, {useState, useEffect} from "react"
 import {  useSelector, useDispatch, connect } from "react-redux";
+import { Link } from "react-router-dom";
 import { signIn } from "../Actions";
 import "../style/header.css"
+import LeaderboardPage from "../pages/leaderboard";
+
+
 const mapStateToProps = state => { 
     return {
         logedOrNot: state.isLogged 
@@ -24,7 +28,7 @@ const Header = (props) => {
             (<div> You are loged on as {users[partID].name} <button id="logOnOffBtn" onClick={()=>dispatch(signIn())}>Log Off</button> </div>)
             :
             <button id="logOnOffBtn">Log In</button>} 
-            <button> LeaderBoard </button>
+           <Link to="leaderboard"><button> LeaderBoard </button></Link> 
         </div>
     )
 }

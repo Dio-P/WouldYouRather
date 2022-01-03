@@ -10,6 +10,7 @@ import {
   Router
 } from "react-router-dom";
 import LeaderBox from './elements/leaderboardBoxElement';
+import LeaderboardPage from './pages/leaderboard';
 
 const mapStateToProps = state => { 
   return {
@@ -40,7 +41,7 @@ function App() {
           
         <Route path="/" element={<LogInPage/>}/>
         }
-        <Route path="leaderboard" element={<LeaderBox/>}/>
+        <Route path="leaderboard" element={<LeaderboardPage/>}/>
 
         
       </Routes>
