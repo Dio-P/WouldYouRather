@@ -4,10 +4,14 @@
     width: 500px;
 }
 
-#avatarHolder {
+.avatarHolder {
     width: 120px;
 }
 
 #userAvatar {
     width: 100%
+}
+
+#scoreHolder{
+    
 }

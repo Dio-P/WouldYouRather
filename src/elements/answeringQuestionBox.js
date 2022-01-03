@@ -18,7 +18,7 @@ const QuestionBox = () => {
 
     return(
         <div class="mainBox">
-            <div id="avatarHolder"> 
+            <div class="avatarHolder"> 
                 <img id="userAvatar" src={users[partID].avatarURL} alt="a random user avatar"/>
             </div>
             <fieldset onChange={(event)=> returningAnswer(event)}>
