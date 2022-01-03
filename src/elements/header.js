@@ -23,14 +23,8 @@ const Header = (props) => {
             {(logedOrNot===true)?  
             (<div> You are loged on as {users[partID].name} <button id="logOnOffBtn" onClick={()=>dispatch(signIn())}>Log Off</button> </div>)
             :
-            <button id="logOnOffBtn">Log In</button>}  
-            {/* have the previous action, of clicking on a name, changing the login status */}
-            {/* now the previous step is done but the button does not rerender */}
-            {/* have this button do different things */}
-            {/* add the additional information we nead on the header */}
-            {/* the login page should not have a header, 
-            the header needs to be removed only on the game and other pages. 
-            Or it could have, it does not really matter */}
+            <button id="logOnOffBtn">Log In</button>} 
+            <button> LeaderBoard </button>
         </div>
     )
 }

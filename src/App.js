@@ -9,6 +9,7 @@ import {
   Routes,
   Router
 } from "react-router-dom";
+import LeaderBox from './elements/leaderboardBoxElement';
 
 const mapStateToProps = state => { 
   return {
@@ -39,6 +40,8 @@ function App() {
           
         <Route path="/" element={<LogInPage/>}/>
         }
+        <Route path="leaderboard" element={<LeaderBox/>}/>
+
         
       </Routes>
   </div>
