@@ -7,28 +7,28 @@ const LeaderBox = (props) => {
     const users = useSelector(state=> state.getUsers)
     const partID = useSelector(state=> state.logID)
 
-    const countingScore = () => {
-        let questions = Object.values(questionsData);
-        let allUsers = Object.values(users);
-        let score = 0
-        for(user of allUsers){
-            console.log("user", user)
-            for(question of questions){
-                if(question.author === user){
-                    score +=1;
-                    console.log("score1",score);
-                }
-                else if(question.optionOne.votes.includes(user)){
-                    score +=1;
-                    console.log("score2",score);
-                }
-                else if(question.optionTwo.votes.includes(user)){
-                    score +=1;
-                    console.log("score3",score);
-                }
-            }
-        }
-    }
+    // const countingScore = () => {
+    //     let questions = Object.values(questionsData);
+    //     let allUsers = Object.values(users);
+    //     let score = 0
+    //     for(user of allUsers){
+    //         console.log("user", user)
+    //         for(question of questions){
+    //             if(question.author === user){
+    //                 score +=1;
+    //                 console.log("score1",score);
+    //             }
+    //             else if(question.optionOne.votes.includes(user)){
+    //                 score +=1;
+    //                 console.log("score2",score);
+    //             }
+    //             else if(question.optionTwo.votes.includes(user)){
+    //                 score +=1;
+    //                 console.log("score3",score);
+    //             }
+    //         }
+    //     }
+    // }
 
 
     return (
