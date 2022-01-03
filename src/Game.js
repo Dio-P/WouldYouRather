@@ -29,6 +29,16 @@ const GamePage = () => {
         <div>
             <Header/>
             <h1>Game Page</h1>
+
+            {Object.values(questionsData).map(question=>(
+                question.optionOne.votes.includes(users[partID].id) || question.optionTwo.votes.includes(users[partID].id)? 
+                console.log(question.id, "question is answered"): console.log(question.id, "question is not answered")
+            ))}
+
+            {/* map over question. create an array that are combined
+            all the users that have answered one of the two questions
+            create a conditional (array includes(username))? question answered
+            : question unaswered and added to an array with the unaswered questions */}
             <button onClick={()=> testingFunctions()}>Test</button>
             {JSON.stringify(Object.values(questionsData))}
             {JSON.stringify(Object.values(users))}

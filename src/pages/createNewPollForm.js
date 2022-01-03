@@ -1,4 +1,5 @@
 import {useState} from "react"
+import "../style/allBoxes.css"
 
 const CreateQuestionForm =() => {
 
@@ -9,13 +10,14 @@ const CreateQuestionForm =() => {
       event.preventDefault();
       console.log("optionOneText", optionOneText);
       console.log("optionTwoText", optionTwoText);
+    //   use the exported function to save the new question.
 
   }
 
     return(
         <div>
             <h1>Form for adding question</h1>
-            <form onSubmit={formSubmit}> 
+            <form className="box" onSubmit={formSubmit}>
                 <label>
                     Option One Text
                     <input type="text" value={optionOneText} onChange={event=>setOptionOneText(event.target.value)}/>
