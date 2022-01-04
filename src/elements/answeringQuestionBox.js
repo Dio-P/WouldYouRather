@@ -25,16 +25,16 @@ const QuestionBox = (props) => {
     return(
         <div class="mainBox">
             <div className="avatarHolder"> 
-                <img id="userAvatar" src={users[partID].avatarURL} alt="a random user avatar"/>
+                {/* <img id="userAvatar" src={users[partID].avatarURL} alt="a random user avatar"/> */}
             </div>
             <fieldset onChange={(event)=> returningAnswer(event)}>
                 <div>
                 <input type= "checkbox" id="a1" name="a1" value="optionOne"/>
-                <label for="a1">{questionsData[props.question].optionOne.text}</label>
+                <label for="a1">{questionsData[0].optionOne.text}</label>
                 </div>
                 <div>
                 <input type= "checkbox" id="a2" name="a2" value="optionTwo"/>
-                <label>{questionsData[props.question].optionTwo.text}</label>
+                <label>{questionsData[0].optionTwo.text}</label>
                 </div>
             </fieldset>
         </div>
