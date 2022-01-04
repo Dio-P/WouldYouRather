@@ -49,11 +49,11 @@ const GamePage = () => {
             <Header/>
             <h1>Game Page</h1>
 
-            <HomeBoxHolder/>
-            {/* {unansweredQuestions.map(question=>(
-                console.log("question is", question)
-                <QuestionBox question={question}/>
-            ))} */}
+            <HomeBoxHolder 
+            answeredQuestions={answeredQuestions}
+            unansweredQuestions={unansweredQuestions}
+            />
+            
         </div>
     )
 }
