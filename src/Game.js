@@ -52,8 +52,8 @@ const GamePage = () => {
             <h2>Unanswered questions: {unansweredQuestions}</h2>
 
             {unansweredQuestions.map(question=>(
-                console.log("question is", question)
-                // <QuestionBox question={question}/>
+                // console.log("question is", question)
+                <QuestionBox question={question}/>
             ))}
             {/* we now want all the asnwered questions to go to the last pageBreakAfter
             and all the unanswered to go to game in the right form
