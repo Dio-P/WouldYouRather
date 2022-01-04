@@ -1,6 +1,7 @@
 import {useState, useEffect} from "react"
 import "../style/allBoxes.css"
 import QuestionBox from "./answeringQuestionBox"
+import QuestionSample from "./questionSample"
 
 const HomeBoxHolder = (props) => {
 
@@ -21,13 +22,13 @@ const HomeBoxHolder = (props) => {
             {(displayState===false)?
             <div>
                 {props.unansweredQuestions.map(question=>(
-                <QuestionBox question={question}/>
+                <QuestionSample question={question}/>
             ))}
             </div>
              :
             <div>
                 {props.answeredQuestions.map(question=>(
-                <QuestionBox question={question}/>
+                <QuestionSample question={question}/>
             ))}
             </div>
             }

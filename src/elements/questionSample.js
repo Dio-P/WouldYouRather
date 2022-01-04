@@ -13,6 +13,7 @@ const QuestionSample = (props) => {
     const questionsData = useSelector(state=> state.getQuestions)
     const users = useSelector(state=> state.getUsers)
     const partID = useSelector(state=> state.logID)
+    const question=props.question;
 
 
 
@@ -38,7 +39,7 @@ const QuestionSample = (props) => {
                 <h4>...{questionsData[props.question].optionOne.text}...</h4>
                 </div>
                 <div>
-                <Link to="/question"><button> Answer Question</button></Link>
+                {/* <Link to="/question" question={question}><button> Answer Question</button></Link> */}
                 </div>
             </fieldset>
         </div>

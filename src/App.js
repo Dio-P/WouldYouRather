@@ -12,6 +12,7 @@ import {
 import LeaderBox from './elements/leaderboardBoxElement';
 import LeaderboardPage from './pages/leaderboard';
 import CreateQuestionForm from './pages/createNewPollForm';
+import SinglePageQuestion from './pages/singleQuestionPage';
 
 const mapStateToProps = state => { 
   return {
@@ -44,6 +45,7 @@ function App() {
         }
         <Route path="leaderboard" element={<LeaderboardPage/>}/>
         <Route path="/add" element={<CreateQuestionForm/>}/>
+        <Route path="/question" element={<SinglePageQuestion/>}/>
 
         
       </Routes>
