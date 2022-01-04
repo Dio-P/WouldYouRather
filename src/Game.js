@@ -12,7 +12,7 @@ import {_saveQuestionAnswer,
 
 const GamePage = () => {
     const [unansweredQuestions, setUnansweredQuestions] = useState([]);
-    // const unansweredQuestions = [];
+    const unansweredQuestionsPrep = [];
 
 
     const users = useSelector(state=> state.getUsers)
@@ -29,11 +29,13 @@ const GamePage = () => {
     useEffect(()=>{Object.values(questionsData).map(question=>(
         question.optionOne.votes.includes(users[partID].id) || question.optionTwo.votes.includes(users[partID].id)? 
         console.log(question.id, "question is answered"):
-        // unansweredQuestions.push(question.id)
-        setUnansweredQuestions([...unansweredQuestions, question.id])
-        // (console.log(question.id, "question is not answered"))
+        unansweredQuestionsPrep.push(question.id)
+        // setUnansweredQuestions([...unansweredQuestions, question.id])
+        // console.log(question.id, "question is not answered")
         // maybe this could be in useEffect
-    ))},[questionsData, partID, users])
+    )); 
+    setUnansweredQuestions(unansweredQuestionsPrep);
+},[])
 
     useEffect(()=>{
         console.log("unanswered questions are:", unansweredQuestions)
