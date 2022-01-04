@@ -13,6 +13,8 @@ import {_saveQuestionAnswer,
 const GamePage = () => {
     const [unansweredQuestions, setUnansweredQuestions] = useState([]);
     const unansweredQuestionsPrep = [];
+    const [answeredQuestions, setAnsweredQuestions] = useState([])
+    const answeredQuestionsPrep = []
 
 
     const users = useSelector(state=> state.getUsers)
@@ -28,13 +30,14 @@ const GamePage = () => {
 
     useEffect(()=>{Object.values(questionsData).map(question=>(
         question.optionOne.votes.includes(users[partID].id) || question.optionTwo.votes.includes(users[partID].id)? 
-        console.log(question.id, "question is answered"):
+        answeredQuestionsPrep.push(question.id):
         unansweredQuestionsPrep.push(question.id)
         // setUnansweredQuestions([...unansweredQuestions, question.id])
         // console.log(question.id, "question is not answered")
         // maybe this could be in useEffect
     )); 
     setUnansweredQuestions(unansweredQuestionsPrep);
+    setAnsweredQuestions(answeredQuestionsPrep);
 },[])
 
     useEffect(()=>{
@@ -49,24 +52,10 @@ const GamePage = () => {
             <Header/>
             <h1>Game Page</h1>
 
-            <h2>Unanswered questions: {unansweredQuestions}</h2>
-
             {unansweredQuestions.map(question=>(
                 // console.log("question is", question)
                 <QuestionBox question={question}/>
             ))}
-            {/* we now want all the asnwered questions to go to the last pageBreakAfter
-            and all the unanswered to go to game in the right form
-            to be answered */}
-
-            {/* map over question. create an array that are combined
-            all the users that have answered one of the two questions
-            create a conditional (array includes(username))? question answered
-            : question unaswered and added to an array with the unaswered questions */}
-            <button onClick={()=> testingFunctions()}>Test</button>
-            {JSON.stringify(Object.values(questionsData))}
-            {JSON.stringify(Object.values(users))}
-            {/* <QuestionBox/> */}
         </div>
     )
 }
