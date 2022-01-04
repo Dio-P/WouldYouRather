@@ -11,8 +11,8 @@ import {_saveQuestionAnswer,
         _getUsers} from "./_DATA"
 
 const GamePage = () => {
-    // const [unansweredQuestions, setUnansweredQuestions] = useState([]);
-    let unansweredQuestions = [];
+    const [unansweredQuestions, setUnansweredQuestions] = useState([]);
+    // const unansweredQuestions = [];
 
 
     const users = useSelector(state=> state.getUsers)
@@ -29,11 +29,11 @@ const GamePage = () => {
     useEffect(()=>{Object.values(questionsData).map(question=>(
         question.optionOne.votes.includes(users[partID].id) || question.optionTwo.votes.includes(users[partID].id)? 
         console.log(question.id, "question is answered"):
-        unansweredQuestions.push(question.id)
-        // setUnansweredQuestions([question.id])
+        // unansweredQuestions.push(question.id)
+        setUnansweredQuestions([...unansweredQuestions, question.id])
         // (console.log(question.id, "question is not answered"))
         // maybe this could be in useEffect
-    ))},[questionsData, partID, users, unansweredQuestions])
+    ))},[questionsData, partID, users])
 
     useEffect(()=>{
         console.log("unanswered questions are:", unansweredQuestions)
@@ -47,7 +47,12 @@ const GamePage = () => {
             <Header/>
             <h1>Game Page</h1>
 
-            
+            <h2>Unanswered questions: {unansweredQuestions}</h2>
+
+            {unansweredQuestions.map(question=>(
+                console.log("question is", question)
+                // <QuestionBox question={question}/>
+            ))}
             {/* we now want all the asnwered questions to go to the last pageBreakAfter
             and all the unanswered to go to game in the right form
             to be answered */}
@@ -59,7 +64,7 @@ const GamePage = () => {
             <button onClick={()=> testingFunctions()}>Test</button>
             {JSON.stringify(Object.values(questionsData))}
             {JSON.stringify(Object.values(users))}
-            <QuestionBox/>
+            {/* <QuestionBox/> */}
         </div>
     )
 }

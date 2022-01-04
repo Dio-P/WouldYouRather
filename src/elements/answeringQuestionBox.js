@@ -1,7 +1,8 @@
+import {useEffect} from "react";
 import {  useSelector, useDispatch } from "react-redux";
 import "../style/allBoxes.css";
 
-const QuestionBox = () => {
+const QuestionBox = (props) => {
 
     const questionsData = useSelector(state=> state.getQuestions)
     const users = useSelector(state=> state.getUsers)
@@ -16,9 +17,13 @@ const QuestionBox = () => {
         return returnedA
     }
 
+    useEffect(()=>{
+        console.log("props.question is", props.question)
+    })
+
     return(
         <div class="mainBox">
-            <div class="avatarHolder"> 
+            <div className="avatarHolder"> 
                 <img id="userAvatar" src={users[partID].avatarURL} alt="a random user avatar"/>
             </div>
             <fieldset onChange={(event)=> returningAnswer(event)}>
