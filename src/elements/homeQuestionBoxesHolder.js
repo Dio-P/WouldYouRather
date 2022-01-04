@@ -4,7 +4,7 @@ import QuestionBox from "./answeringQuestionBox"
 
 const HomeBoxHolder = (props) => {
 
-    const [displayState, setDisplayState] = useState("true")
+    const [displayState, setDisplayState] = useState(false)
 
     useEffect(()=>{
         console.log("displayState",displayState);
@@ -15,23 +15,22 @@ const HomeBoxHolder = (props) => {
     return(
         <div className="box">
             <div>
-                <button onClick={()=> setDisplayState("true")}>Unasnwered Questions</button>
-                <button onClick={()=> setDisplayState("false")}>Answered Questions</button>
+                <button onClick={()=> setDisplayState(true)}>Unasnwered Questions</button>
+                <button onClick={()=> setDisplayState(false)}>Answered Questions</button>
             </div>
-            {/* if */}
+            {(displayState===true)?
             <div>
-                {/* {props.unansweredQuestions.map(question=>(
-                console.log("question is", question)
+                {props.unansweredQuestions.map(question=>(
                 <QuestionBox question={question}/>
-            ))} */}
+            ))}
             </div>
-             {/* or */}
+             :
             <div>
-                {/* {props.answeredQuestions.map(question=>(
-                console.log("question is", question)
+                {props.answeredQuestions.map(question=>(
                 <QuestionBox question={question}/>
-            ))} */}
+            ))}
             </div>
+            }
 
             {/* two links or buttons with state. One for answered and one for ananswered questions map */}
             {/* if link one true, shop map one if not show map two */}
