@@ -18,7 +18,7 @@ const HomeBoxHolder = (props) => {
                 <button onClick={()=> setDisplayState(true)}>Unasnwered Questions</button>
                 <button onClick={()=> setDisplayState(false)}>Answered Questions</button>
             </div>
-            {(displayState===true)?
+            {(displayState===false)?
             <div>
                 {props.unansweredQuestions.map(question=>(
                 <QuestionBox question={question}/>

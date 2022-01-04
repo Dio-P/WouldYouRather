@@ -40,8 +40,9 @@ const GamePage = () => {
 },[])
 
     useEffect(()=>{
-        console.log("unanswered questions are:", unansweredQuestions)
-    }, [unansweredQuestions])
+        console.log("unanswered questions are:", unansweredQuestions);
+        console.log("answered questions are:", answeredQuestions);
+    }, [unansweredQuestions, answeredQuestions])
 
 
     return(
