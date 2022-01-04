@@ -9,6 +9,7 @@ import {_saveQuestionAnswer,
         _saveQuestion,
         _getQuestions,
         _getUsers} from "./_DATA"
+import HomeBoxHolder from "./elements/homeQuestionBoxesHolder";
 
 const GamePage = () => {
     const [unansweredQuestions, setUnansweredQuestions] = useState([]);
@@ -32,9 +33,7 @@ const GamePage = () => {
         question.optionOne.votes.includes(users[partID].id) || question.optionTwo.votes.includes(users[partID].id)? 
         answeredQuestionsPrep.push(question.id):
         unansweredQuestionsPrep.push(question.id)
-        // setUnansweredQuestions([...unansweredQuestions, question.id])
-        // console.log(question.id, "question is not answered")
-        // maybe this could be in useEffect
+    
     )); 
     setUnansweredQuestions(unansweredQuestionsPrep);
     setAnsweredQuestions(answeredQuestionsPrep);
@@ -44,18 +43,17 @@ const GamePage = () => {
         console.log("unanswered questions are:", unansweredQuestions)
     }, [unansweredQuestions])
 
-// make the chosen user name presented on the header if loged is true
-// start adding functionality on the game page
 
     return(
         <div>
             <Header/>
             <h1>Game Page</h1>
 
-            {unansweredQuestions.map(question=>(
-                // console.log("question is", question)
+            <HomeBoxHolder/>
+            {/* {unansweredQuestions.map(question=>(
+                console.log("question is", question)
                 <QuestionBox question={question}/>
-            ))}
+            ))} */}
         </div>
     )
 }
