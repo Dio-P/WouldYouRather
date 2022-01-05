@@ -7,7 +7,7 @@ let questions =(state={}, action) => {
               console.log("action", action)
               console.log("state", state) 
 
-              return [action.payload]
+              return action.payload
               default: {
                 return state
               }

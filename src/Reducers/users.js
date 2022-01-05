@@ -44,7 +44,7 @@ let users = (state={
             return state;
 
           case "USERSTOSTATE":
-            return [action.payload]
+            return action.payload
 
             default: {
                 return state;
