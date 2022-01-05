@@ -3,7 +3,7 @@ import { AvatarGenerator } from 'random-avatar-generator';
 const generator = new AvatarGenerator();
 
 let users = (state={
-
+// this under needs to be removed when I fix the async characteristics
     sarahedo: {
         id: 'sarahedo',
         name: 'Sarah Edo',

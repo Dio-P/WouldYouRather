@@ -24,9 +24,10 @@ export const gettingUsers = () => {
     }
 }
 
-export const usersInState =() =>{
+export const usersInState =(users) =>{
     return{
-        type: "USERSTOSTATE"
+        type: "USERSTOSTATE", 
+        payload: users
     }
 }
 
@@ -36,9 +37,10 @@ export const gettingQuestions = () => {
     }
 }
 
-export const questionsInState = () => {
+export const questionsInState = (questions) => {
     return{
-        type: "QUESTIONSTOSTATE"
+        type: "QUESTIONSTOSTATE",
+        payload: questions
     }
 }
 

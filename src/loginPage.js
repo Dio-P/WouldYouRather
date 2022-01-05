@@ -1,3 +1,4 @@
+import {useEffect} from "react"
 import {  useSelector, useDispatch } from "react-redux";
 import { getUsers, gettingUsers, login_id, giveUserDetails, signIn  } from "./Actions";
 import Header from "./elements/header";
@@ -16,9 +17,8 @@ const LogInPage= () => {
         console.log("loginID", loginID)
         dispatch(login_id(loginID))
         dispatch(signIn())
-
-
     }
+
 
     return(
         <div>
