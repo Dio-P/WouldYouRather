@@ -2,7 +2,7 @@ import {
     _saveQuestionAnswer,
     _saveQuestion,
     _getQuestions,
-    _getUsers} from "./_DATA"
+    _getUsers} from "../_DATA"
 
 
    export const getInitQuestions=()=> {

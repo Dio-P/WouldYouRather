@@ -1,3 +1,4 @@
+import {useEffect} from "react";
 import logo from './logo.svg';
 import './App.css';
 import {  useSelector, useDispatch, connect } from "react-redux";
@@ -13,6 +14,7 @@ import LeaderBox from './elements/leaderboardBoxElement';
 import LeaderboardPage from './pages/leaderboard';
 import CreateQuestionForm from './pages/createNewPollForm';
 import SinglePageQuestion from './pages/singleQuestionPage';
+import { getInitQuestions, getInitUsers } from "./dataConnect/dateMiddleLink";
 
 const mapStateToProps = state => { 
   return {
@@ -26,6 +28,12 @@ function App() {
   const logedIn = useSelector(state=> state.isLogged);
   const users = useSelector(state=> state.getUsers)
   const dispatch = useDispatch();
+
+  useEffect(()=>{
+    getInitQuestions();
+    getInitUsers();
+
+  },[])
   
 
   return (
