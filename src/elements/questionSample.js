@@ -39,7 +39,8 @@ const QuestionSample = (props) => {
                 <h4>...{questionsData[props.question].optionOne.text}...</h4>
                 </div>
                 <div>
-                <Link to="/question" question={props.question}><button> Answer Question</button></Link>
+                <Link to={{pathname: "/question",
+                state: {question:props.question}}}><button> Answer Question</button></Link>
                 </div>
             </fieldset>
         </div>

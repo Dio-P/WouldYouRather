@@ -1,3 +1,4 @@
+import {useLocation} from "react-router-dom"
 import {
     Route,
     Routes,
@@ -6,11 +7,13 @@ import {
   } from "react-router-dom";
 import QuestionBox from "../elements/answeringQuestionBox"
 
-const SinglePageQuestion = (props) => {
+const SinglePageQuestion = () => {
+    const location = useLocation();
+    const { question } = location.state;
 
     return(
         
-        <QuestionBox question={props.question}/>
+        <QuestionBox question={question}/>
     )
 }
 
