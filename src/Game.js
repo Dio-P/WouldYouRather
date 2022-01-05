@@ -23,11 +23,7 @@ const GamePage = () => {
     const questionsData = useSelector(state=> state.getQuestions)
     const dispatch = useDispatch();
 
-    const testingFunctions=()=> {
-        _getQuestions().then(data=>{const q = data;
-            console.log("q", q);
-        })
-    }
+    
 
     useEffect(()=>{Object.values(questionsData).map(question=>(
         question.optionOne.votes.includes(users[partID].id) || question.optionTwo.votes.includes(users[partID].id)? 
