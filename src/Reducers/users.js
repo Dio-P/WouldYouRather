@@ -42,6 +42,10 @@ let users = (state={
     switch(action.type){
         case "GETUSERS":
             return state;
+
+          case "USERSTOSTATE":
+            return [action.payload]
+
             default: {
                 return state;
             }

@@ -24,6 +24,24 @@ export const gettingUsers = () => {
     }
 }
 
+export const usersInState =() =>{
+    return{
+        type: "USERSTOSTATE"
+    }
+}
+
+export const gettingQuestions = () => {
+    return{
+        type: "GETQUESTIONS"
+    }
+}
+
+export const questionsInState = () => {
+    return{
+        type: "QUESTIONSTOSTATE"
+    }
+}
+
 export const giveUserDetails = () => {
     return{
         type: "GIV_LOG_DETAILS"

@@ -2,7 +2,7 @@ import {useEffect} from "react";
 import logo from './logo.svg';
 import './App.css';
 import {  useSelector, useDispatch, connect } from "react-redux";
-import { _getUsers, gettingUsers } from "./Actions";
+import { gettingUsers, gettingQuestions, questionsInState, usersInState } from "./Actions";
 import LogInPage from './loginPage';
 import GamePage from './Game';
 import {
@@ -30,8 +30,11 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(()=>{
-    getInitQuestions();
-    getInitUsers();
+    return getInitQuestions()
+    .then(questions=> {console.log("questions before dispatch in app are:", questions);dispatch(questionsInState(questions))})
+    getInitUsers()
+    .then(users=>{console.log("users before dispatch in app are", users); dispatch(usersInState(users))})
+    
 
   },[])
   
