@@ -15,14 +15,14 @@ import {
   Link
 } from "react-router-dom";
 import logger from './middlewear/logger';
-
+import thunk from "redux-thunk";
 
 const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) 
 || compose;
 
 
 let store = createStore(allReducers, 
-  composeEnhancers(applyMiddleware(logger))
+  composeEnhancers(applyMiddleware(thunk, logger))
   // .__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   //  
   );
