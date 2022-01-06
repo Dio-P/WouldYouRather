@@ -22,8 +22,7 @@ const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOO
 
 
 let store = createStore(allReducers, 
-  composeEnhancers()
-  , applyMiddleware(logger)
+  composeEnhancers(applyMiddleware(logger))
   // .__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   //  
   );
