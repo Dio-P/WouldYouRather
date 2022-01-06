@@ -22,12 +22,6 @@ const LogInPage= () => {
 
     return(
         <div>
-            <Header/>
-            {/* <button onClick={()=> dispatch(gettingUsers())}> Test</button> */}
-            {/* Users: {JSON.stringify(users)} */}
-            {/* <button onClick={()=> dispatch(login_id(loginID))}> UserDetTest</button> */}
-            {/* <h1>Users {JSON.stringify(Object.values(users))}</h1> */}
-            {/* <h2> particular Id : {partID}</h2> */}
             <h1>LogInPage</h1>
             <select name="userId" 
             onChange={(event)=>login(event)}>
