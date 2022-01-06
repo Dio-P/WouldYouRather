@@ -1,4 +1,4 @@
-import {useEffect} from "react";
+import {useState, useEffect} from "react";
 import logo from './logo.svg';
 import './App.css';
 import {  useSelector, useDispatch, connect } from "react-redux";
@@ -24,6 +24,9 @@ const mapStateToProps = state => {
 
 
 function App() {
+
+  const [questionId, setQuestionId] = useState("")
+
   const counter = useSelector(state=> state.counter);
   const logedIn = useSelector(state=> state.isLogged);
   const users = useSelector(state=> state.getUsers)
@@ -49,14 +52,16 @@ function App() {
         
 
         {logedIn===true? 
-          <Route path="/" element={<GamePage/>}/>
+          <Route path="/" element={<GamePage 
+            questionId={(questionID)=> setQuestionId(questionID)}
+            />}/>
           :
           
         <Route path="/" element={<LogInPage/>}/>
         }
         <Route path="leaderboard" element={<LeaderboardPage/>}/>
         <Route path="/add" element={<CreateQuestionForm/>}/>
-        <Route path="/question" element={<SinglePageQuestion/>}/>
+        <Route path="question/:question_id" element={<SinglePageQuestion/>}/>
 
         
       </Routes>

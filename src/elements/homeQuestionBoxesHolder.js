@@ -22,7 +22,9 @@ const HomeBoxHolder = (props) => {
             {(displayState===false)?
             <div>
                 {props.unansweredQuestions.map(question=>(
-                <QuestionSample question={question}/>
+                <QuestionSample 
+                question={question}
+                questionId={(questionID)=> props.setQuestionId(questionID)}/>
             ))}
             </div>
              :

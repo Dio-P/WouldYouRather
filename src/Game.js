@@ -11,7 +11,7 @@ import {_saveQuestionAnswer,
         _getUsers} from "./_DATA"
 import HomeBoxHolder from "./elements/homeQuestionBoxesHolder";
 
-const GamePage = () => {
+const GamePage = (props) => {
     const [unansweredQuestions, setUnansweredQuestions] = useState([]);
     const unansweredQuestionsPrep = [];
     const [answeredQuestions, setAnsweredQuestions] = useState([])
@@ -33,6 +33,8 @@ const GamePage = () => {
     )); 
     setUnansweredQuestions(unansweredQuestionsPrep);
     setAnsweredQuestions(answeredQuestionsPrep);
+    console.log("props.questionID in Game", props.questionID);
+
 },[])
 
     useEffect(()=>{
@@ -49,6 +51,7 @@ const GamePage = () => {
             <HomeBoxHolder 
             answeredQuestions={answeredQuestions}
             unansweredQuestions={unansweredQuestions}
+            questionId={props.questionId}
             />
             
         </div>

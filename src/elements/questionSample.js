@@ -1,4 +1,4 @@
-import {useEffect} from "react";
+import {useState, useEffect} from "react";
 import {  useSelector, useDispatch } from "react-redux";
 import "../style/allBoxes.css";
 import {
@@ -9,6 +9,7 @@ import {
   } from "react-router-dom";
 
 const QuestionSample = (props) => {
+
 
     const questionsData = useSelector(state=> state.getQuestions)
     const users = useSelector(state=> state.getUsers)
@@ -27,7 +28,8 @@ const QuestionSample = (props) => {
     useEffect(()=>{
         console.log("props.question is2", props.question);
         console.log("questionData[props.question] is:", questionsData[props.question])
-    })
+        console.log("props.questionID", props.questionID);
+    }, [])
 
     return(
         <div class="mainBox">
@@ -39,7 +41,7 @@ const QuestionSample = (props) => {
                 <h4>...{questionsData[props.question].optionOne.text}...</h4>
                 </div>
                 <div>
-                <Link to={{pathname: "/question",
+                <Link to={{pathname: "question/:question_id",
                 state: {question:props.question}}}><button> Answer Question</button></Link>
                 </div>
             </fieldset>
