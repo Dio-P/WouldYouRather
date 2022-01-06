@@ -9,7 +9,7 @@ import QuestionBox from "../elements/answeringQuestionBox"
 
 const SinglePageQuestion = () => {
     const location = useLocation();
-    const { question } = location.state;
+    const  {question} = location.state.question;
 
     return(
         

@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 // import { Provider } from 'react-redux'
-import { createStore, compose } from "redux";
+import { createStore, compose, applyMiddleware } from "redux";
 // import { StoreContext } from "./context";
 import allReducers from './Reducers';
 import { Provider } from "react-redux";
@@ -14,6 +14,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import logger from './middlewear/logger';
 
 
 const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) 
@@ -22,6 +23,7 @@ const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOO
 
 let store = createStore(allReducers, 
   composeEnhancers()
+  , applyMiddleware(logger)
   // .__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   //  
   );
