@@ -11,26 +11,35 @@ const CreateQuestionForm =() => {
     const questionID = useSelector(state=> state.questionID)
     const users = useSelector(state=> state.getUsers)
     const partID = useSelector(state=> state.logID)
+    const auth = users[partID].name
 
 
-    useEffect(()=>{
-        formatQuestion(optionOneText, optionTwoText, users[partID].name);
-        console.log("formatQuestion is: ", formatQuestion())
+    // useEffect(()=>{
+    //     formatQuestion(optionOneText, optionTwoText, users[partID].name);
+    //     console.log("formatQuestion is: ", formatQuestion())
         
-    }, [optionOneText, optionTwoText])
+    // }, [optionOneText, optionTwoText])
 
-  const formSubmit = (event) => {
-        event.preventDefault();
-        console.log("optionOneText", optionOneText);
-        console.log("optionTwoText", optionTwoText);
-        setOptionOneText(optionOneText);
-        setOptionTwoText(optionTwoText);
+  const formSubmit = (optionOneText, optionTwoText, auth) => {
+        // event.preventDefault();
+        formatQuestion(optionOneText, optionTwoText, auth);
+        console.log("formatQuestion is: ", formatQuestion())
+        // console.log("event.opt1.value is !!!!!!!!!!!!!", event.opt1.value)
+        // console.log("optionOneText", optionOneText);
+        // console.log("optionTwoText", optionTwoText);
+        // console.log("typeof optionOneText", typeof optionOneText);
+        // console.log(" typeof optionTwoText", typeof optionTwoText);
+        // setOptionOneText(optionOneText);
+        // setOptionTwoText(optionTwoText);
           
       
     //   use the exported function to save the new question.
   }
 
   const formatQuestion = (optionOneText, optionTwoText, author) =>{
+      console.log("optionOneText from within the for Quest action", optionOneText)
+      console.log("optionTwoText from within the for Quest action", optionTwoText)
+
     return {
       id: generateUID(),
       timestamp: Date.now(),
@@ -70,14 +79,14 @@ const CreateQuestionForm =() => {
     return(
         <div>
             <h1>Form for adding question</h1>
-            <form className="box" onSubmit={event=>formSubmit(event)}>
+            <form className="box" onSubmit={formSubmit()}>
                 <label>
                     Option One Text
-                    <input type="text" value={optionOneText} onChange={event=>setOptionOneText(event.target.value)}/>
+                    <input type="text" name="opt1" value={optionOneText} onChange={event=>setOptionOneText(event.target.value)}/>
                 </label>
                 <label>
                     Option Two Text
-                    <input type="text" value={optionTwoText} onChange={event=>setOptionTwoText(event.target.value)}/>
+                    <input type="text" name="opt2" value={optionTwoText} onChange={event=>setOptionTwoText(event.target.value)}/>
                 </label>
                 <button type="submit" value="submit">Answer</button>
             </form>
