@@ -1,4 +1,5 @@
-import {useState} from "react"
+import {useState, useEffect} from "react";
+import {  useSelector, useDispatch } from "react-redux";
 import "../style/allBoxes.css"
 
 const CreateQuestionForm =() => {
@@ -6,18 +7,70 @@ const CreateQuestionForm =() => {
     const [optionOneText, setOptionOneText] = useState("");
     const [optionTwoText, setOptionTwoText] = useState("");
 
-  const formSubmit = (event) => {
-      event.preventDefault();
-      console.log("optionOneText", optionOneText);
-      console.log("optionTwoText", optionTwoText);
-    //   use the exported function to save the new question.
+    const questionsData = useSelector(state=> state.getQuestions)
+    const questionID = useSelector(state=> state.questionID)
+    const users = useSelector(state=> state.getUsers)
+    const partID = useSelector(state=> state.logID)
 
+
+    useEffect(()=>{
+        formatQuestion(optionOneText, optionTwoText, users[partID].name);
+        console.log("formatQuestion is: ", formatQuestion())
+        
+    }, [optionOneText, optionTwoText])
+
+  const formSubmit = (event) => {
+        event.preventDefault();
+        console.log("optionOneText", optionOneText);
+        console.log("optionTwoText", optionTwoText);
+        setOptionOneText(optionOneText);
+        setOptionTwoText(optionTwoText);
+          
+      
+    //   use the exported function to save the new question.
   }
+
+  const formatQuestion = (optionOneText, optionTwoText, author) =>{
+    return {
+      id: generateUID(),
+      timestamp: Date.now(),
+      author,
+      optionOne: {
+        votes: [],
+        text: optionOneText,
+      },
+      optionTwo: {
+        votes: [],
+        text: optionTwoText,
+      }
+    }
+  }
+
+
+
+  function generateUID () {
+    return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
+  }
+//   function formatQuestion ( optionOneText, optionTwoText, author ) {
+//     return {
+//       id: generateUID(),
+//       timestamp: Date.now(),
+//       author,
+//       optionOne: {
+//         votes: [],
+//         text: optionOneText,
+//       },
+//       optionTwo: {
+//         votes: [],
+//         text: optionTwoText,
+//       }
+//     }
+//   }
 
     return(
         <div>
             <h1>Form for adding question</h1>
-            <form className="box" onSubmit={formSubmit}>
+            <form className="box" onSubmit={event=>formSubmit(event)}>
                 <label>
                     Option One Text
                     <input type="text" value={optionOneText} onChange={event=>setOptionOneText(event.target.value)}/>
