@@ -50,6 +50,12 @@ export const giveUserDetails = () => {
     }
 }
 
+// export const loading = () =>{
+//     return{
+//         type: 
+//     }
+// }
+
 export const login_id = (Login_Id) => {
     return{
         type: "LOGIN_AS",

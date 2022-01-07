@@ -15,6 +15,8 @@ import LeaderboardPage from './pages/leaderboard';
 import CreateQuestionForm from './pages/createNewPollForm';
 import SinglePageQuestion from './pages/singleQuestionPage';
 import { getInitQuestions, getInitUsers } from "./dataConnect/dateMiddleLink";
+import Loading from "./pages/loading"
+import {__esModule} from 'redux-devtools-extension'
 
 const mapStateToProps = state => { 
   return {
@@ -29,7 +31,8 @@ function App() {
 
   const counter = useSelector(state=> state.counter);
   const logedIn = useSelector(state=> state.isLogged);
-  const users = useSelector(state=> state.getUsers)
+  const users = useSelector(state=> state.getUsers);
+  const loading= useSelector(state=> state.loading);
   const dispatch = useDispatch();
 
   useEffect(()=>{
@@ -50,7 +53,8 @@ function App() {
         <button onClick={()=> dispatch(increment(5))}>+</button>
         <button onClick={()=> dispatch(decrement())}>-</button> */}
         
-
+        {loading===true}?
+        <Loading/>:
         {logedIn===true? 
           <Route path="/" element={<GamePage 
             questionId={(questionID)=> setQuestionId(questionID)}

@@ -4,6 +4,7 @@ import { combineReducers } from "redux";
 import users from "./users";
 import questions from "./questions";
 import logID from "./loginId";
+import loading from "./loading";
 
 
 const allReducers = combineReducers({
@@ -12,6 +13,7 @@ const allReducers = combineReducers({
     getUsers: users,
     getQuestions: questions,
     logID: logID,
+    loading: loading
 
 
 
