@@ -54,7 +54,7 @@ function App() {
         <button onClick={()=> dispatch(decrement())}>-</button> */}
         
         {loading===true}?
-        <Loading/>:
+        <Route path="pageLoading" element={<Loading/>}/>:
         {logedIn===true? 
           <Route path="/" element={<GamePage 
             questionId={(questionID)=> setQuestionId(questionID)}
