@@ -17,6 +17,7 @@ import SinglePageQuestion from './pages/singleQuestionPage';
 import { getInitQuestions, getInitUsers } from "./dataConnect/dateMiddleLink";
 import Loading from "./pages/loading"
 import {__esModule} from 'redux-devtools-extension'
+import SingleQResults from "./pages/resultsSingleQuestions";
 
 const mapStateToProps = state => { 
   return {
@@ -70,7 +71,7 @@ function App() {
         <Route path="leaderboard" element={<LeaderboardPage/>}/>
         <Route path="/add" element={<CreateQuestionForm/>}/>
         <Route path="question/:question_id" element={<SinglePageQuestion question={questionId}/>}/>
-
+        <Route path="/results" element={<SingleQResults/>}/>
         
       </Routes>
   </div>

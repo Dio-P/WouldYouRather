@@ -1,6 +1,13 @@
 import {useEffect} from "react";
 import {  useSelector, useDispatch } from "react-redux";
 import "../style/allBoxes.css";
+import singleQuestionID from "../Reducers/singleQuestionId";
+import {
+    Route,
+    Routes,
+    Router, 
+    Link
+  } from "react-router-dom";
 
 const QuestionBox = (props) => {
 
@@ -37,6 +44,7 @@ const QuestionBox = (props) => {
                 <input type= "checkbox" id="a2" name="a2" value="optionTwo"/>
                 <label>{questionsData[questionID].optionTwo.text}</label>
                 </div>
+                <Link to="/results"><button className="button"> Submit</button></Link> 
             </fieldset>
         </div>
     )
