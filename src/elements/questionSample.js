@@ -34,7 +34,7 @@ const QuestionSample = (props) => {
     return(
         <div class="mainBox">
             <div className="avatarHolder"> 
-                <img id="userAvatar" src={users[partID].avatarURL} alt="a random user avatar"/>
+                <img id="userAvatar" src={users[questionsData[props.question].author].avatarURL} alt="a random user avatar"/>
             </div>
             <fieldset onChange={(event)=> returningAnswer(event)}>
                 <div>
