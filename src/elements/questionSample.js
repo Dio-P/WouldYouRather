@@ -1,5 +1,6 @@
 import {useState, useEffect} from "react";
 import {  useSelector, useDispatch } from "react-redux";
+import { QIDtoState } from "../Actions";
 import "../style/allBoxes.css";
 import {
     Route,
@@ -10,10 +11,11 @@ import {
 
 const QuestionSample = (props) => {
 
-
+    
     const questionsData = useSelector(state=> state.getQuestions)
     const users = useSelector(state=> state.getUsers)
     const partID = useSelector(state=> state.logID)
+    const dispatch = useDispatch();
     const question=props.question;
 
 
@@ -41,7 +43,7 @@ const QuestionSample = (props) => {
                 <h4>...{questionsData[props.question].optionOne.text}...</h4>
                 </div>
                 <div>
-                <Link to={{pathname: "question/:question_id",
+                <Link onClick={dispatch(QIDtoState(props.question))} to={{pathname: "question/:question_id",
                 state: {question:props.question}}}><button> Answer Question</button></Link>
                 </div>
             </fieldset>

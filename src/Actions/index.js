@@ -50,11 +50,12 @@ export const giveUserDetails = () => {
     }
 }
 
-// export const loading = () =>{
-//     return{
-//         type: 
-//     }
-// }
+export const QIDtoState = (signleQuestionID) =>{
+    return{
+        type: "SINGLEQIDTOSTATE",
+        payload: signleQuestionID
+    }
+}
 
 export const login_id = (Login_Id) => {
     return{

@@ -43,6 +43,10 @@ function App() {
     
 
   },[])
+
+  useEffect(()=> {
+    console.log("new Question Id is: ", questionId);
+  }, [questionId])
   
 
   return (
@@ -65,7 +69,7 @@ function App() {
         }
         <Route path="leaderboard" element={<LeaderboardPage/>}/>
         <Route path="/add" element={<CreateQuestionForm/>}/>
-        <Route path="question/:question_id" element={<SinglePageQuestion/>}/>
+        <Route path="question/:question_id" element={<SinglePageQuestion question={questionId}/>}/>
 
         
       </Routes>

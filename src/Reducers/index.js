@@ -5,6 +5,7 @@ import users from "./users";
 import questions from "./questions";
 import logID from "./loginId";
 import loading from "./loading";
+import singleQuestionID from "./singleQuestionId";
 
 
 const allReducers = combineReducers({
@@ -13,7 +14,8 @@ const allReducers = combineReducers({
     getUsers: users,
     getQuestions: questions,
     logID: logID,
-    loading: loading
+    loading: loading, 
+    questionID: singleQuestionID
 
 
 
