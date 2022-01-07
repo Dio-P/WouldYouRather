@@ -15,7 +15,7 @@ const allReducers = combineReducers({
     getQuestions: questions,
     logID: logID,
     loading: loading, 
-    questionID: singleQuestionID
+    questionID: singleQuestionID,
 
 
 

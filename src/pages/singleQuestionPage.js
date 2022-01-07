@@ -1,4 +1,5 @@
 import {useLocation} from "react-router-dom"
+import {  useSelector, useDispatch } from "react-redux";
 import {
     Route,
     Routes,
@@ -9,11 +10,12 @@ import QuestionBox from "../elements/answeringQuestionBox"
 
 const SinglePageQuestion = () => {
     const location = useLocation();
-    const  {question} = location.state.question;
+    // const  {question} = location.state.question;
+    const questionID = useSelector(state=> state.questionID)
 
     return(
         
-        <QuestionBox question={question}/>
+        <QuestionBox question={questionID}/>
     )
 }
 

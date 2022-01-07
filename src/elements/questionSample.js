@@ -33,6 +33,12 @@ const QuestionSample = (props) => {
         console.log("props.questionID", props.questionID);
     }, [])
 
+    const passingQid = () => {
+        console.log("props.question ON CLICK is !!!!!!!!!!!!!!!!!!!!!!!!!!!!!:", props.question)
+        dispatch(QIDtoState(props.question))
+
+    }
+
     return(
         <div class="mainBox">
             <div className="avatarHolder"> 
@@ -43,8 +49,8 @@ const QuestionSample = (props) => {
                 <h4>...{questionsData[props.question].optionOne.text}...</h4>
                 </div>
                 <div>
-                <Link onClick={dispatch(QIDtoState(props.question))} to={{pathname: "question/:question_id",
-                state: {question:props.question}}}><button> Answer Question</button></Link>
+                <Link  to={{pathname: "question/:question_id",
+                state: {question:props.question}}}><button onClick={passingQid}> Answer Question</button></Link>
                 </div>
             </fieldset>
         </div>
