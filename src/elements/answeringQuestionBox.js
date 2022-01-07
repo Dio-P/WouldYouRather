@@ -5,6 +5,7 @@ import "../style/allBoxes.css";
 const QuestionBox = (props) => {
 
     const questionsData = useSelector(state=> state.getQuestions)
+    const questionID = useSelector(state=> state.questionID)
     const users = useSelector(state=> state.getUsers)
     const partID = useSelector(state=> state.logID)
 
@@ -25,16 +26,16 @@ const QuestionBox = (props) => {
     return(
         <div class="mainBox">
             <div className="avatarHolder"> 
-                {/* <img id="userAvatar" src={users[partID].avatarURL} alt="a random user avatar"/> */}
+                <img id="userAvatar" src={users[questionsData[questionID].author].avatarURL} alt="a random user avatar"/>
             </div>
             <fieldset onChange={(event)=> returningAnswer(event)}>
                 <div>
                 <input type= "checkbox" id="a1" name="a1" value="optionOne"/>
-                {/* <label for="a1">{questionsData[0].optionOne.text}</label> */}
+                <label for="a1">{questionsData[questionID].optionOne.text}</label>
                 </div>
                 <div>
                 <input type= "checkbox" id="a2" name="a2" value="optionTwo"/>
-                {/* <label>{questionsData[0].optionTwo.text}</label> */}
+                <label>{questionsData[questionID].optionTwo.text}</label>
                 </div>
             </fieldset>
         </div>
