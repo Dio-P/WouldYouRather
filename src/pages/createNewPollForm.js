@@ -78,7 +78,7 @@ const CreateQuestionForm =() => {
     return(
         <div>
             <h1>Form for adding question</h1>
-            <div className="box" >
+            <div className="box" onSubmit={formSubmit()}>
                 <label>
                     Option One Text
                     <input type="text" name="opt1" value={optionOneText} onChange={event=>setOptionOneText(event.target.value)}/>
@@ -87,7 +87,7 @@ const CreateQuestionForm =() => {
                     Option Two Text
                     <input type="text" name="opt2" value={optionTwoText} onChange={event=>setOptionTwoText(event.target.value)}/>
                 </label>
-                <button type="submit" value="submit" onClick={formSubmit()}>Answer</button>
+                <button type="submit" value="submit">Answer</button>
             </div>
         </div>
     )
