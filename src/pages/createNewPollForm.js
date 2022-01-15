@@ -22,8 +22,8 @@ const CreateQuestionForm =() => {
 
   const formSubmit = (optionOneText, optionTwoText, auth) => {
         // event.preventDefault();
-        formatQuestion(optionOneText, optionTwoText, auth);
-        console.log("formatQuestion is: ", formatQuestion())
+        const res = formatQuestion(optionOneText, optionTwoText, auth);
+        console.log("formatQuestion is: ", res)
         console.log("optionOneText", optionOneText);
         console.log("optionTwoText", optionTwoText);
         // console.log("typeof optionOneText", typeof optionOneText);
@@ -78,7 +78,7 @@ const CreateQuestionForm =() => {
     return(
         <div>
             <h1>Form for adding question</h1>
-            <form className="box" >
+            <div className="box" >
                 <label>
                     Option One Text
                     <input type="text" name="opt1" value={optionOneText} onChange={event=>setOptionOneText(event.target.value)}/>
@@ -88,7 +88,7 @@ const CreateQuestionForm =() => {
                     <input type="text" name="opt2" value={optionTwoText} onChange={event=>setOptionTwoText(event.target.value)}/>
                 </label>
                 <button type="submit" value="submit" onClick={formSubmit()}>Answer</button>
-            </form>
+            </div>
         </div>
     )
 }
