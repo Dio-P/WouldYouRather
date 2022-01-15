@@ -20,7 +20,7 @@ const CreateQuestionForm =() => {
         
     // }, [optionOneText, optionTwoText])
 
-  const formSubmit = (optionOneText, optionTwoText, auth) => {
+  const formSubmit = () => {
         // event.preventDefault();
         const res = formatQuestion(optionOneText, optionTwoText, auth);
         console.log("formatQuestion is: ", res)
