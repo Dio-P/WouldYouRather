@@ -87,7 +87,7 @@ const CreateQuestionForm =() => {
                     Option Two Text
                     <input type="text" name="opt2" value={optionTwoText} onChange={event=>setOptionTwoText(event.target.value)}/>
                 </label>
-                <button type="submit" value="submit" onClick={formSubmit(optionOneText, optionTwoText, auth)}>Answer</button>
+                <button type="submit" value="submit" onClick={ formSubmit}>Answer</button>
             </div>
         </div>
     )
