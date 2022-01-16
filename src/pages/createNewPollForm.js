@@ -2,6 +2,7 @@ import {useState, useEffect} from "react";
 import {  useSelector, useDispatch } from "react-redux";
 import { savingNewQuestion } from "../Actions";
 import "../style/allBoxes.css"
+import Header from "../elements/header";
 
 const CreateQuestionForm =() => {
 
@@ -108,6 +109,7 @@ const CreateQuestionForm =() => {
 
     return(
         <div>
+            <Header/>
             <h1>Form for adding question</h1>
             <div className="box" >
                 <label>

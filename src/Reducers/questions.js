@@ -14,7 +14,7 @@ let questions =(state={}, action) => {
               console.log("state after saving new q", state) 
               return {
                 ...state,
-                ...action.payload
+                [action.payload.id]: action.payload
               }
             
               default: {
