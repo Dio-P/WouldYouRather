@@ -44,6 +44,13 @@ export const questionsInState = (questions) => {
     }
 }
 
+export const savingNewQuestion = (newQuestion) => {
+    return{
+        type: "SAVENEWQUESTION",
+        payload: newQuestion
+    }
+}
+
 export const giveUserDetails = () => {
     return{
         type: "GIV_LOG_DETAILS"

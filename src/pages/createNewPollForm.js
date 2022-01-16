@@ -7,7 +7,7 @@ const CreateQuestionForm =() => {
     const [optionOneText, setOptionOneText] = useState("");
     const [optionTwoText, setOptionTwoText] = useState("");
 
-    const questionsData = useSelector(state=> state.getQuestions)
+    const questions = useSelector(state=> state.getQuestions)
     const questionID = useSelector(state=> state.questionID)
     const users = useSelector(state=> state.getUsers)
     const partID = useSelector(state=> state.logID)
@@ -22,8 +22,12 @@ const CreateQuestionForm =() => {
 
   const formSubmit = () => {
         // event.preventDefault();
-        const res = formatQuestion(optionOneText, optionTwoText, auth);
-        console.log("formatQuestion is: ", res)
+        // const res = formatQuestion(optionOneText, optionTwoText, auth)
+        // .then(question=>{
+          _saveQuestion (formatQuestion(optionOneText, optionTwoText, auth));
+          console.log("_saveQuestion", formatQuestion(optionOneText, optionTwoText, auth))
+        // })
+        console.log("formatQuestion is: ", formatQuestion(optionOneText, optionTwoText, auth))
         console.log("optionOneText", optionOneText);
         console.log("optionTwoText", optionTwoText);
         // console.log("typeof optionOneText", typeof optionOneText);
@@ -54,7 +58,29 @@ const CreateQuestionForm =() => {
     }
   }
 
-
+  // function _saveQuestion (question) {
+  //   return new Promise((res, rej) => {
+  //     const authedUser = question.author;
+  //     const formattedQuestion = formatQuestion(question);
+  
+  //     setTimeout(() => {
+  //       questions = {
+  //         ...questions,
+  //         [formattedQuestion.id]: formattedQuestion
+  //       }
+        
+  //       users = {
+  //         ...users,
+  //         [authedUser]: {
+  //           ...users[authedUser],
+  //           questions: users[authedUser].questions.concat([formattedQuestion.id])
+  //         }
+  //       }
+  
+  //       res(formattedQuestion)
+  //     }, 1000)
+  //   })
+  // }
 
   function generateUID () {
     return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)

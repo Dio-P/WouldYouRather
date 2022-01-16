@@ -8,6 +8,13 @@ let questions =(state={}, action) => {
               console.log("state", state) 
 
               return action.payload
+
+            case "SAVENEWQUESTION":
+              return {
+                ...state,
+                ...action.payload
+              }
+            
               default: {
                 return state
               }
