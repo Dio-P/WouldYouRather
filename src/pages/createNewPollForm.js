@@ -1,8 +1,10 @@
 import {useState, useEffect} from "react";
 import {  useSelector, useDispatch } from "react-redux";
 import { savingNewQuestion } from "../Actions";
+import { getInitQuestions } from "../dataConnect/dateMiddleLink";
 import "../style/allBoxes.css"
 import Header from "../elements/header";
+import { formatQuestion, _saveQuestion} from "../_DATA";
 
 const CreateQuestionForm =() => {
 
@@ -24,28 +26,19 @@ const CreateQuestionForm =() => {
     // }, [optionOneText, optionTwoText])
 
   const formSubmit = () => {
-        // event.preventDefault();
-        // const res = formatQuestion(optionOneText, optionTwoText, auth)
-        dispatch(savingNewQuestion(formatQuestion(optionOneText, optionTwoText, auth)))
+ 
+        dispatch(savingNewQuestion(formatingQuestion(optionOneText, optionTwoText, auth)))
+        
+          _saveQuestion(formatQuestion(optionOneText, optionTwoText, auth));
+          console.log("getInitQuestions second !!!!!!!!!!!", getInitQuestions())
 
-        // .then(question=>{
-          // _saveQuestion (formatQuestion(optionOneText, optionTwoText, auth));
-          // console.log("_saveQuestion", formatQuestion(optionOneText, optionTwoText, auth))
-        // })
-        console.log("formatQuestion is: ", formatQuestion(optionOneText, optionTwoText, auth))
-        console.log("optionOneText", optionOneText);
-        console.log("optionTwoText", optionTwoText);
-        // console.log("typeof optionOneText", typeof optionOneText);
-        // console.log(" typeof optionTwoText", typeof optionTwoText);
-        // setOptionOneText(optionOneText);
-        // setOptionTwoText(optionTwoText);
-          
-      
-    //   use the exported function to save the new question.
+        console.log("formatQuestion is: ", formatQuestion(optionOneText, optionTwoText, auth))///////////////
+        console.log("optionOneText", optionOneText);/////////////////////
+        console.log("optionTwoText", optionTwoText);////////////////////
   }
 
 
-  const formatQuestion = (optionOneText, optionTwoText, author) =>{
+  const formatingQuestion = (optionOneText, optionTwoText, author) =>{
       console.log("optionOneText from within the for Quest action", optionOneText)
       console.log("optionTwoText from within the for Quest action", optionTwoText)
 
@@ -64,48 +57,11 @@ const CreateQuestionForm =() => {
     }
   }
 
-  // function _saveQuestion (question) {
-  //   return new Promise((res, rej) => {
-  //     const authedUser = question.author;
-  //     const formattedQuestion = formatQuestion(question);
-  
-  //     setTimeout(() => {
-  //       questions = {
-  //         ...questions,
-  //         [formattedQuestion.id]: formattedQuestion
-  //       }
-        
-  //       users = {
-  //         ...users,
-  //         [authedUser]: {
-  //           ...users[authedUser],
-  //           questions: users[authedUser].questions.concat([formattedQuestion.id])
-  //         }
-  //       }
-  
-  //       res(formattedQuestion)
-  //     }, 1000)
-  //   })
-  // }
 
   function generateUID () {
     return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
   }
-//   function formatQuestion ( optionOneText, optionTwoText, author ) {
-//     return {
-//       id: generateUID(),
-//       timestamp: Date.now(),
-//       author,
-//       optionOne: {
-//         votes: [],
-//         text: optionOneText,
-//       },
-//       optionTwo: {
-//         votes: [],
-//         text: optionTwoText,
-//       }
-//     }
-//   }
+
 
     return(
         <div>
