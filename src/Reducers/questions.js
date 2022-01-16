@@ -10,6 +10,8 @@ let questions =(state={}, action) => {
               return action.payload
 
             case "SAVENEWQUESTION":
+              console.log("action after saving new q", action)
+              console.log("state after saving new q", state) 
               return {
                 ...state,
                 ...action.payload

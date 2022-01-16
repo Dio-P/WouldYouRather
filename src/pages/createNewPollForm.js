@@ -1,5 +1,6 @@
 import {useState, useEffect} from "react";
 import {  useSelector, useDispatch } from "react-redux";
+import { savingNewQuestion } from "../Actions";
 import "../style/allBoxes.css"
 
 const CreateQuestionForm =() => {
@@ -12,6 +13,7 @@ const CreateQuestionForm =() => {
     const users = useSelector(state=> state.getUsers)
     const partID = useSelector(state=> state.logID)
     const auth = users[partID].name
+    const dispatch = useDispatch();
 
 
     // useEffect(()=>{
@@ -23,9 +25,11 @@ const CreateQuestionForm =() => {
   const formSubmit = () => {
         // event.preventDefault();
         // const res = formatQuestion(optionOneText, optionTwoText, auth)
+        dispatch(savingNewQuestion(formatQuestion(optionOneText, optionTwoText, auth)))
+
         // .then(question=>{
-          _saveQuestion (formatQuestion(optionOneText, optionTwoText, auth));
-          console.log("_saveQuestion", formatQuestion(optionOneText, optionTwoText, auth))
+          // _saveQuestion (formatQuestion(optionOneText, optionTwoText, auth));
+          // console.log("_saveQuestion", formatQuestion(optionOneText, optionTwoText, auth))
         // })
         console.log("formatQuestion is: ", formatQuestion(optionOneText, optionTwoText, auth))
         console.log("optionOneText", optionOneText);
@@ -38,6 +42,7 @@ const CreateQuestionForm =() => {
       
     //   use the exported function to save the new question.
   }
+
 
   const formatQuestion = (optionOneText, optionTwoText, author) =>{
       console.log("optionOneText from within the for Quest action", optionOneText)
