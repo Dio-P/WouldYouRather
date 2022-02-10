@@ -156,9 +156,10 @@ export function formatQuestion ({ optionOneText, optionTwoText, author }) {
 }
 
 export function _saveQuestion (question) {
+  console.log("question is !!!!!!!!!!!!!!!!", question)////////////////
   return new Promise((res, rej) => {
     const authedUser = question.author;
-    console.log("authedUser!!!!!!!!!", authedUser)
+    console.log("authedUser!!!!!!!!!", authedUser)/////////////////
     const formattedQuestion = formatQuestion(question);
 
     setTimeout(() => {

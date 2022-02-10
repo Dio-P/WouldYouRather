@@ -15,7 +15,7 @@ const CreateQuestionForm =() => {
     const questionID = useSelector(state=> state.questionID)
     const users = useSelector(state=> state.getUsers)
     const partID = useSelector(state=> state.logID)
-    const auth = users[partID].name
+    const auth = users[partID].id
     const dispatch = useDispatch();
 
 
@@ -26,13 +26,14 @@ const CreateQuestionForm =() => {
     // }, [optionOneText, optionTwoText])
 
   const formSubmit = () => {
- 
-        dispatch(savingNewQuestion(formatingQuestion(optionOneText, optionTwoText, auth)))
+        const question = {optionOneText, optionTwoText, author: auth}
+        const newQuestion = formatingQuestion(optionOneText, optionTwoText, auth)
+        dispatch(savingNewQuestion(optionOneText, optionTwoText, auth))
         
-          _saveQuestion(formatQuestion(optionOneText, optionTwoText, auth));
-          console.log("getInitQuestions second !!!!!!!!!!!", getInitQuestions())
+        _saveQuestion(question);
+        console.log("getInitQuestions second !!!!!!!!!!!", getInitQuestions())
 
-        console.log("formatQuestion is: ", formatQuestion(optionOneText, optionTwoText, auth))///////////////
+        console.log("formatQuestion is: ", formatingQuestion(optionOneText, optionTwoText, auth))///////////////
         console.log("optionOneText", optionOneText);/////////////////////
         console.log("optionTwoText", optionTwoText);////////////////////
   }
@@ -66,7 +67,7 @@ const CreateQuestionForm =() => {
     return(
         <div>
             <Header/>
-            <h1>Form for adding question</h1>
+            <h1>Would you rather</h1>
             <div className="box" >
                 <label>
                     Option One Text
