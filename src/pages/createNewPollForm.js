@@ -36,6 +36,7 @@ const CreateQuestionForm =() => {
         console.log("formatQuestion is: ", formatingQuestion(optionOneText, optionTwoText, auth))///////////////
         console.log("optionOneText", optionOneText);/////////////////////
         console.log("optionTwoText", optionTwoText);////////////////////
+        return 
   }
 
 
