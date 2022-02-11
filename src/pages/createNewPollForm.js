@@ -1,10 +1,13 @@
 import {useState, useEffect} from "react";
 import {  useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { savingNewQuestion } from "../Actions";
 import { getInitQuestions } from "../dataConnect/dateMiddleLink";
 import "../style/allBoxes.css"
 import Header from "../elements/header";
+import HomeBoxHolder from "../elements/homeQuestionBoxesHolder";
 import { formatQuestion, _saveQuestion} from "../_DATA";
+import GamePage from '../Game'
 
 const CreateQuestionForm =() => {
 
@@ -17,6 +20,7 @@ const CreateQuestionForm =() => {
     const partID = useSelector(state=> state.logID)
     const auth = users[partID].id
     const dispatch = useDispatch();
+    let navigate = useNavigate();
 
 
     // useEffect(()=>{
@@ -26,6 +30,7 @@ const CreateQuestionForm =() => {
     // }, [optionOneText, optionTwoText])
 
   const formSubmit = () => {
+    
         const question = {optionOneText, optionTwoText, author: auth}
         const newQuestion = formatingQuestion(optionOneText, optionTwoText, auth)
         dispatch(savingNewQuestion(optionOneText, optionTwoText, auth))
@@ -36,7 +41,8 @@ const CreateQuestionForm =() => {
         console.log("formatQuestion is: ", formatingQuestion(optionOneText, optionTwoText, auth))///////////////
         console.log("optionOneText", optionOneText);/////////////////////
         console.log("optionTwoText", optionTwoText);////////////////////
-        return 
+        // navigate("/")
+
   }
 
 

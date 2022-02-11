@@ -17,7 +17,6 @@ const GamePage = (props) => {
     const [answeredQuestions, setAnsweredQuestions] = useState([])
     const answeredQuestionsPrep = []
 
-
     const users = useSelector(state=> state.getUsers)
     const partID = useSelector(state=> state.logID)
     const questionsData = useSelector(state=> state.getQuestions)
