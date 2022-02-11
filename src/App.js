@@ -37,8 +37,8 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(()=>{
-    getInitQuestions()
-    .then(questions=> {console.log("questions before dispatch in app are:", questions);dispatch(questionsInState(questions))})
+    // getInitQuestions()
+    // .then(questions=> {console.log("questions before dispatch in app are:", questions);dispatch(questionsInState(questions))})
     getInitUsers()
     .then(users=>{console.log("users before dispatch in app are", users); dispatch(usersInState(users))})
     

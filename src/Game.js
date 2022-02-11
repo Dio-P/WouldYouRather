@@ -40,8 +40,8 @@ const GamePage = (props) => {
             setAnsweredQuestions(answeredQuestionsPrep);
             console.log("props.questionID in Game", props.questionID);
         })
-        getInitUsers()
-        .then(users=>{console.log("users before dispatch in app are", users); dispatch(usersInState(users))});
+        // getInitUsers()
+        // .then(users=>{console.log("users before dispatch in app are", users); dispatch(usersInState(users))});
         // const getQuestions = async() => {return await questionsData}
 },[])
 
