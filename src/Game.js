@@ -1,9 +1,9 @@
 import {useState, useEffect} from "react"
 import {  useSelector, useDispatch } from "react-redux";
-import { getUsers, gettingUsers, login_id, giveUserDetails, signIn  } from "./Actions";
+import { getUsers, gettingUsers, login_id, giveUserDetails, signIn, questionsInState, usersInState  } from "./Actions";
 import Header from "./elements/header";
 import QuestionBox from "./elements/answeringQuestionBox";
-// import _DATA.js from "./_DATA"
+import { getInitQuestions, getInitUsers } from "./dataConnect/dateMiddleLink";
 // from the data ask the .idName.name
 import {_saveQuestionAnswer,
         _saveQuestion,
@@ -24,16 +24,23 @@ const GamePage = (props) => {
 
     
 
-    useEffect(()=>{Object.values(questionsData).map(question=>(
-        question.optionOne.votes.includes(users[partID].id) || question.optionTwo.votes.includes(users[partID].id)? 
-        answeredQuestionsPrep.push(question.id):
-        unansweredQuestionsPrep.push(question.id)
-    
-    )); 
-    setUnansweredQuestions(unansweredQuestionsPrep);
-    setAnsweredQuestions(answeredQuestionsPrep);
-    console.log("props.questionID in Game", props.questionID);
-
+    useEffect(()=>{
+        getInitQuestions()
+        .then(questions=> {
+            console.log("questions before dispatch in app are:", questions);
+            dispatch(questionsInState(questions));
+            Object.values(questionsData).map(question=>(
+                question.optionOne.votes.includes(users[partID].id) || question.optionTwo.votes.includes(users[partID].id)? 
+                answeredQuestionsPrep.push(question.id):
+                unansweredQuestionsPrep.push(question.id)
+            ));
+            setUnansweredQuestions(unansweredQuestionsPrep);
+            setAnsweredQuestions(answeredQuestionsPrep);
+            console.log("props.questionID in Game", props.questionID);
+        })
+        getInitUsers()
+        .then(users=>{console.log("users before dispatch in app are", users); dispatch(usersInState(users))});
+        // const getQuestions = async() => {return await questionsData}
 },[])
 
     useEffect(()=>{

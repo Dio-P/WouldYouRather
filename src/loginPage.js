@@ -25,7 +25,7 @@ const LogInPage= () => {
             <h1>LogInPage</h1>
             <select name="userId" 
             onChange={(event)=>login(event)}>
-                <option value="Please chouse login ID">Please Chouse a login ID</option>
+                <option value="Please chouse login ID">Please choose a login ID</option>
                 {Object.values(users).map(user=>(
                  <option value={user.id}>{user.name}</option>
                 ))}
