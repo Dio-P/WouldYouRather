@@ -16,6 +16,7 @@ const GamePage = (props) => {
     const unansweredQuestionsPrep = [];
     const [answeredQuestions, setAnsweredQuestions] = useState([])
     const answeredQuestionsPrep = []
+    const initialQuestions = []
 
     const users = useSelector(state=> state.getUsers)
     const partID = useSelector(state=> state.logID)
@@ -29,7 +30,8 @@ const GamePage = (props) => {
         .then(questions=> {
             console.log("questions before dispatch in app are:", questions);
             dispatch(questionsInState(questions));
-            Object.values(questionsData).map(question=>(
+            // initialQuestions.push(questions);
+            Object.values(questions).map(question=>(
                 question.optionOne.votes.includes(users[partID].id) || question.optionTwo.votes.includes(users[partID].id)? 
                 answeredQuestionsPrep.push(question.id):
                 unansweredQuestionsPrep.push(question.id)
