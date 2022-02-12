@@ -45,7 +45,7 @@ const SingleQResults = () => {
     return (
         <div>
             <Header/>
-            <div class= "main_card_style">
+            <div className= "main_card_style answer_results_box">
                 <h4>asked by: {users[questionsData[questionID].author].name} </h4>
                 <h1>Results</h1>
                 <div className="avatarHolder"> 
