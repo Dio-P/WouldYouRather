@@ -1,7 +1,8 @@
 import {useState, useEffect} from "react";
 import {  useSelector, useDispatch } from "react-redux";
 import { QIDtoState } from "../Actions";
-import "../style/allBoxes.css";
+// import "../style/allBoxes.css";
+import "../style/main.css"
 import {
     Route,
     Routes,
@@ -40,17 +41,17 @@ const QuestionSample = (props) => {
     }
 
     return(
-        <div class="mainBox">
+        <div className="main_card_style">
             <div className="avatarHolder"> 
                 <img id="userAvatar" src={users[questionsData[props.question].author].avatarURL} alt="a random user avatar"/>
             </div>
-            <fieldset onChange={(event)=> returningAnswer(event)}>
+            <fieldset className="main_fieldset" onChange={(event)=> returningAnswer(event)}>
                 <div>
                 <h4>...{questionsData[props.question].optionOne.text}...</h4>
                 </div>
                 <div>
                 <Link  to={{pathname: "question/:question_id",
-                state: {question:props.question}}}><button onClick={passingQid}> Answer Question</button></Link>
+                state: {question:props.question}}}><button className="main_button_style" onClick={passingQid}> Answer Question</button></Link>
                 </div>
             </fieldset>
         </div>

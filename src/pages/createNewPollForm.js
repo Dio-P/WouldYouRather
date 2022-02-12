@@ -3,11 +3,12 @@ import {  useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { savingNewQuestion } from "../Actions";
 import { getInitQuestions } from "../dataConnect/dateMiddleLink";
-import "../style/allBoxes.css"
 import Header from "../elements/header";
 import HomeBoxHolder from "../elements/homeQuestionBoxesHolder";
 import { formatQuestion, _saveQuestion} from "../_DATA";
 import GamePage from '../Game'
+import "../style/main.css"
+import reduxDevtoolsExtension from 'redux-devtools-extension'
 
 const CreateQuestionForm =() => {
 
@@ -74,17 +75,15 @@ const CreateQuestionForm =() => {
     return(
         <div>
             <Header/>
-            <h1>Would you rather</h1>
-            <div className="box" >
-                <label>
-                    Option One Text
-                    <input type="text" name="opt1" value={optionOneText} onChange={event=>setOptionOneText(event.target.value)}/>
-                </label>
-                <label>
-                    Option Two Text
-                    <input type="text" name="opt2" value={optionTwoText} onChange={event=>setOptionTwoText(event.target.value)}/>
-                </label>
-                <button type="submit" value="submit" onClick={ formSubmit}>Answer</button>
+            <h1 className="would_you_rather_title">Would you rather</h1>
+            <div className="main_card_style add_question_card_style" >
+                <label for="opt1">Option One Text</label>  
+                <input type="text" name="opt1" value={optionOneText} onChange={event=>setOptionOneText(event.target.value)}/>
+        
+                <label for="opt2">Option Two Text</label>
+                <input type="text" name="opt2" value={optionTwoText} onChange={event=>setOptionTwoText(event.target.value)}/>
+                
+                <button className="main_button_style" type="submit" value="submit" onClick={ formSubmit}>Answer</button>
             </div>
         </div>
     )

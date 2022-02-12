@@ -40,7 +40,7 @@ const SingleQResults = () => {
     // }, [optionOneVotes, optionTwoVotes])
     
     return (
-        <div class="box">
+        <div class= "main_card_style">
             <h4>asked by: {users[questionsData[questionID].author].name} </h4>
             <h1>Results</h1>
             <div className="avatarHolder"> 
