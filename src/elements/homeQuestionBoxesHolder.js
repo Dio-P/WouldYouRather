@@ -14,10 +14,10 @@ const HomeBoxHolder = (props) => {
 
 
     return(
-        <div className="box">
+        <div className="main_home_all_quest_holder">
             <div>
-                <button onClick={()=> setDisplayState(true)}>Unasnwered Questions</button>
-                <button onClick={()=> setDisplayState(false)}>Answered Questions</button>
+                <button className="main_button_style" onClick={()=> setDisplayState(true)}>Unasnwered Questions</button>
+                <button className="main_button_style" onClick={()=> setDisplayState(false)}>Answered Questions</button>
             </div>
             {(displayState===false)?
             <div>

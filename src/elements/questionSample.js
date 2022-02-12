@@ -41,7 +41,7 @@ const QuestionSample = (props) => {
     }
 
     return(
-        <div className="main_card_style">
+        <div className="main_card_style game_quest_sample">
             <div className="avatarHolder"> 
                 <img id="userAvatar" src={users[questionsData[props.question].author].avatarURL} alt="a random user avatar"/>
             </div>
