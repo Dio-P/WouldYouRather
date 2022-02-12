@@ -7,6 +7,8 @@ import {
     Link
   } from "react-router-dom";
 import QuestionBox from "../elements/answeringQuestionBox"
+import Header from "../elements/header";
+import "../style/main.css"
 
 const SinglePageQuestion = () => {
     const location = useLocation();
@@ -14,8 +16,10 @@ const SinglePageQuestion = () => {
     const questionID = useSelector(state=> state.questionID)
 
     return(
-        
-        <QuestionBox question={questionID}/>
+        <div>
+            <Header/>
+            <QuestionBox question={questionID}/>
+        </div>
     )
 }
 

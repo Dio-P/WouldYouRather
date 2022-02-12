@@ -1,7 +1,8 @@
 import {useState, useEffect} from "react"
-import "../style/allBoxes.css"
+// import "../style/allBoxes.css"
 import QuestionBox from "./answeringQuestionBox"
 import QuestionSample from "./questionSample"
+import "../style/main.css"
 
 const HomeBoxHolder = (props) => {
 

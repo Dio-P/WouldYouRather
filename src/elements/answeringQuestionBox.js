@@ -1,6 +1,6 @@
 import {useEffect} from "react";
 import {  useSelector, useDispatch } from "react-redux";
-import "../style/allBoxes.css";
+// import "../style/allBoxes.css";
 import singleQuestionID from "../Reducers/singleQuestionId";
 import {
     Route,
@@ -8,6 +8,7 @@ import {
     Router, 
     Link
   } from "react-router-dom";
+import "../style/main.css"
 
 const QuestionBox = (props) => {
 
@@ -31,11 +32,11 @@ const QuestionBox = (props) => {
     })
 
     return(
-        <div class="mainBox">
+        <div className="main_card_style answering_questions_box">
             <div className="avatarHolder"> 
                 <img id="userAvatar" src={users[questionsData[questionID].author].avatarURL} alt="a random user avatar"/>
             </div>
-            <fieldset onChange={(event)=> returningAnswer(event)}>
+            <fieldset className="main_fieldset" onChange={(event)=> returningAnswer(event)}>
                 <div>
                 <input type= "checkbox" id="a1" name="a1" value="optionOne"/>
                 <label for="a1">{questionsData[questionID].optionOne.text}</label>
