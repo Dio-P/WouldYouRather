@@ -31,6 +31,11 @@ const QuestionBox = (props) => {
         console.log("questionData[props.question] is:", questionsData[props.question])
     })
 
+    const submitQuestion = () => {
+        console.log("submit Question works");
+
+    }
+
     return(
         <div className="main_card_style answering_questions_box">
             <div className="avatarHolder"> 
@@ -45,7 +50,7 @@ const QuestionBox = (props) => {
                 <input type= "checkbox" id="a2" name="a2" value="optionTwo"/>
                 <label>{questionsData[questionID].optionTwo.text}</label>
                 </div>
-                <Link to="/results"><button className="button"> Submit</button></Link> 
+                <Link to="/results"><button onClick={submitQuestion} className="button"> Submit</button></Link> 
             </fieldset>
         </div>
     )
