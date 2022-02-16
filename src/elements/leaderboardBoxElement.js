@@ -1,5 +1,6 @@
 import {  useSelector, useDispatch } from "react-redux";
-import "../style/allBoxes.css";
+// import "../style/allBoxes.css";
+import "../style/main.css";
 
 
 const LeaderBox = (props) => {

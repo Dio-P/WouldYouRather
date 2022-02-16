@@ -3,17 +3,19 @@ import {  useSelector, useDispatch } from "react-redux";
 // import "../style/allBoxes.css";
 import "../style/main.css"
 import Header from "../elements/header";
+import PercentageBar from "../elements/percentageBar";
 
 
 const SingleQResults = () => {
     const questionsData = useSelector(state=> state.getQuestions)
     const questionID = useSelector(state=> state.questionID)
     const users = useSelector(state=> state.getUsers)
+    // let totalVotes;
 
   
 
     const optionOneVotes=()=>{
-        console.log("option One voret length is: ", questionsData[questionID].optionOne.votes.length)
+        console.log("option One votes length is: ", questionsData[questionID].optionOne.votes.length)
         return questionsData[questionID].optionOne.votes.length
 
     }
@@ -27,6 +29,7 @@ const SingleQResults = () => {
     useEffect(()=>{
         optionOneVotes();
         optionTwoVotes();
+        // totalVotes = (optionOneVotes() + optionTwoVotes())
         
 
     }, [])
@@ -55,12 +58,14 @@ const SingleQResults = () => {
                 <div>
                     <h5>{questionsData[questionID].optionOne.text}</h5>
                     <p>results stats</p>
+                    <PercentageBar totalVotes={optionOneVotes() + optionTwoVotes()} questionVotes={optionOneVotes()}/>
                     <p>{optionOneVotes()} out of {optionOneVotes() + optionTwoVotes()} votes</p>
 
                 </div>
                 <div>
                     <h5>{questionsData[questionID].optionTwo.text}</h5>
                     <p>result stats</p>
+                    <PercentageBar totalVotes={optionOneVotes() + optionTwoVotes()} questionVotes={optionTwoVotes()}/>
                     <p>{optionTwoVotes()} out of {optionOneVotes() + optionTwoVotes()} votes</p>
 
                 </div>

@@ -6,7 +6,7 @@ import "../style/main.css"
 
 const HomeBoxHolder = (props) => {
 
-    const [displayState, setDisplayState] = useState(false)
+    const [displayState, setDisplayState] = useState(true);
 
     useEffect(()=>{
         console.log("displayState",displayState);
