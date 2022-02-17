@@ -12,7 +12,6 @@ const mapStateToProps = state => {
     }
 }
 
-
 const Header = (props) => {
 
     const users = useSelector(state=> state.getUsers)
