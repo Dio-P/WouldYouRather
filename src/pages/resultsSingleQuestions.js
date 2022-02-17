@@ -4,12 +4,16 @@ import {  useSelector, useDispatch } from "react-redux";
 import "../style/main.css"
 import Header from "../elements/header";
 import PercentageBar from "../elements/percentageBar";
+import { getInitQuestions, getInitUsers } from "../dataConnect/dateMiddleLink";
+import { usersInState } from "../Actions";
+
 
 
 const SingleQResults = () => {
     const questionsData = useSelector(state=> state.getQuestions)
     const questionID = useSelector(state=> state.questionID)
     const users = useSelector(state=> state.getUsers)
+    const dispatch = useDispatch();
     // let totalVotes;
 
   
@@ -29,6 +33,12 @@ const SingleQResults = () => {
     useEffect(()=>{
         optionOneVotes();
         optionTwoVotes();
+        getInitUsers()
+        .then(users=>{
+            dispatch(usersInState(users));
+            // setUsers(users);
+            console.log("users!!!!!!!!!!!!!!", users)
+        })
         // totalVotes = (optionOneVotes() + optionTwoVotes())
         
 

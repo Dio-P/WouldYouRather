@@ -19,6 +19,7 @@ const GamePage = (props) => {
     const initialQuestions = []
 
     const users = useSelector(state=> state.getUsers)
+    // const [users, setUsers] = useState([])
     const partID = useSelector(state=> state.logID)
     const questionsData = useSelector(state=> state.getQuestions)
     const dispatch = useDispatch();
@@ -27,7 +28,13 @@ const GamePage = (props) => {
 
     useEffect(()=>{
         getInitUsers()
-        .then(users=>{dispatch(usersInState(users))})
+        .then(users=>{
+            dispatch(usersInState(users));
+            // setUsers(users);
+            console.log("users!!!!!!!!!!!!!!", users)
+        })
+
+        // console.log("partID!!!!!!!!!!!", partID)
         getInitQuestions()
         .then(questions=> {
             console.log("questions before dispatch in app are:", questions);
