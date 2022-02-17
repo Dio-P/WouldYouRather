@@ -26,6 +26,8 @@ const GamePage = (props) => {
     
 
     useEffect(()=>{
+        getInitUsers()
+        .then(users=>{dispatch(usersInState(users))})
         getInitQuestions()
         .then(questions=> {
             console.log("questions before dispatch in app are:", questions);

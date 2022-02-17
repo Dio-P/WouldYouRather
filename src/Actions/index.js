@@ -51,6 +51,14 @@ export const savingNewQuestion = (newQuestion) => {
     }
 }
 
+export const saveNewAnswer = (newAnswer) => {
+    return{
+        type: "SAVENEWANSWER",
+        payload: newAnswer
+    }
+    
+}
+
 export const giveUserDetails = () => {
     return{
         type: "GIV_LOG_DETAILS"
