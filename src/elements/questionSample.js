@@ -28,6 +28,8 @@ const QuestionSample = (props) => {
         console.log("props+++++++++++++++++++", props);
         console.log("props.question is2", props.question);
         console.log("questionData[props.question] is:", questionsData[props.question])
+        console.log("questionsData[props.question].author0000000000000000", questionsData[props.question].author)
+        console.log("users[questionsData[props.question].author]0000000000000000", users[questionsData[props.question].author])
         console.log("props.questionID", props.questionID);
     }, [])
 

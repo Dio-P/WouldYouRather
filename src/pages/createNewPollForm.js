@@ -1,7 +1,7 @@
 import { useState } from "react";
 import {  useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { savingNewQuestion } from "../Actions";
+import { savingNewQuestion, updatingNewQuestionUserCreated } from "../Actions";
 import Header from "../elements/header";
 import { _saveQuestion } from "../_DATA";
 
@@ -21,12 +21,35 @@ const CreateQuestionForm =() => {
     const dispatch = useDispatch();
     let navigate = useNavigate();
 
+    function formatQuestion ({ optionOneText, optionTwoText, author }) {
+      return {
+        id: generateUID(),
+        timestamp: Date.now(),
+        author,
+        optionOne: {
+          votes: [],
+          text: optionOneText,
+        },
+        optionTwo: {
+          votes: [],
+          text: optionTwoText,
+        }
+      }
+    }
+    
+    function generateUID () {
+      return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
+    }
+
 
   const formSubmit = () => {
     
         const question = {optionOneText, optionTwoText, author: auth}
-        dispatch(savingNewQuestion({optionOneText, optionTwoText, auth}))
+        const formattedQuestion = formatQuestion({optionOneText, optionTwoText, author: auth})
+        dispatch(savingNewQuestion(formattedQuestion))
+        dispatch(updatingNewQuestionUserCreated({auth, formattedQuestion})); //originaly auth was authorised user
         _saveQuestion(question);
+        
         navigate("/")
 
   }

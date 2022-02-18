@@ -11,11 +11,13 @@ let users = (state={}, action)=>{
             return action.payload
 
           case "UPDATEUSERCREATEDQUESTION":
+            console.log("action after updating new q to user@@@@@@@@@@@@@@@@@", action)
+            console.log("state after updating new q to user@@@@@@@@@@@@@@@@@", state) 
             return state= {
             ...state,
-          [action.payload.authedUser]: {
-            ...state[action.payload.authedUser],
-            questions: users[action.payload.authedUser].questions.concat([action.payload.formattedQuestion.id])
+            [action.payload.auth]: {
+            ...state[action.payload.auth],
+            questions: state[action.payload.auth].questions.concat([action.payload.formattedQuestion.id])
           }
         }
 

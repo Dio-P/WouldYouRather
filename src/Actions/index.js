@@ -51,12 +51,12 @@ export const savingNewQuestion = (newQuestion) => {
     }
 }
 
-// export const updatingNewQuestionUserCreated = (newUserQuestionData) => {
-//     return{
-//         type: "UPDATEUSERCREATEDQUESTION",
-//         payload: newUserQuestionData
-//     }
-// }
+export const updatingNewQuestionUserCreated = (newUserQuestionData) => {
+    return{
+        type: "UPDATEUSERCREATEDQUESTION",
+        payload: newUserQuestionData
+    }
+}
 
 
 // export const saveNewAnswer = (newAnswer) => {
