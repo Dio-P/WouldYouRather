@@ -27,20 +27,23 @@ const GamePage = (props) => {
     
 
     useEffect(()=>{
-        getInitUsers()
-        .then(users=>{
-            dispatch(usersInState(users));
-            // setUsers(users);
-            console.log("users!!!!!!!!!!!!!!", users)
-        })
+        // getInitUsers()
+        // .then(users=>{
+        //     dispatch(usersInState(users));
+        //     // setUsers(users);
+        //     console.log("users!!!!!!!!!!!!!!", users)
+        // })
 
         // console.log("partID!!!!!!!!!!!", partID)
-        getInitQuestions()
-        .then(questions=> {
-            console.log("questions before dispatch in app are:", questions);
-            dispatch(questionsInState(questions));
+
+        // getInitQuestions()
+        // .then(questions=> {
+        //     console.log("questions before dispatch in app are:", questions);
+        //     dispatch(questionsInState(questions));
+
             // initialQuestions.push(questions);
-            Object.values(questions).map(question=>(
+            console.log("Object.values(questionsData)??????????????????????", Object.values(questionsData));
+            Object.values(questionsData).map(question=>(
                 question.optionOne.votes.includes(users[partID].id) || question.optionTwo.votes.includes(users[partID].id)? 
                 answeredQuestionsPrep.push(question.id):
                 unansweredQuestionsPrep.push(question.id)
@@ -48,7 +51,7 @@ const GamePage = (props) => {
             setUnansweredQuestions(unansweredQuestionsPrep);
             setAnsweredQuestions(answeredQuestionsPrep);
             console.log("props.questionID in Game", props.questionID);
-        })
+        // })
         // getInitUsers()
         // .then(users=>{console.log("users before dispatch in app are", users); dispatch(usersInState(users))});
         // const getQuestions = async() => {return await questionsData}

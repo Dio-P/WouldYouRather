@@ -33,15 +33,15 @@ const CreateQuestionForm =() => {
   const formSubmit = () => {
     
         const question = {optionOneText, optionTwoText, author: auth}
-        const newQuestion = formatingQuestion(optionOneText, optionTwoText, auth)
+        // const newQuestion = formatingQuestion(optionOneText, optionTwoText, auth)
         dispatch(savingNewQuestion(optionOneText, optionTwoText, auth))
         
         _saveQuestion(question);
-        console.log("getInitQuestions second !!!!!!!!!!!", getInitQuestions())
+        // console.log("getInitQuestions second !!!!!!!!!!!", getInitQuestions())/////////////////////
 
-        console.log("formatQuestion is: ", formatingQuestion(optionOneText, optionTwoText, auth))///////////////
-        console.log("optionOneText", optionOneText);/////////////////////
-        console.log("optionTwoText", optionTwoText);////////////////////
+        // console.log("formatQuestion is: ", formatingQuestion(optionOneText, optionTwoText, auth))///////////////
+        // console.log("optionOneText", optionOneText);/////////////////////
+        // console.log("optionTwoText", optionTwoText);////////////////////
         navigate("/")
 
   }
