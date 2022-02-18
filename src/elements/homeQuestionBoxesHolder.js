@@ -31,7 +31,8 @@ const HomeBoxHolder = (props) => {
              :
             <div>
                 {props.answeredQuestions.map(question=>(
-                <QuestionSample question={question}/>
+                <QuestionSample question={question}
+                questionId={props.questionId}/>
             ))}
             </div>
             }

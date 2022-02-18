@@ -10,14 +10,14 @@ let users = (state={}, action)=>{
           case "USERSTOSTATE":
             return action.payload
 
-        //   case "UPDATEUSERCREATEDQUESTION":
-        //     return state= {
-        //     ...state,
-        //   [action.payload.authedUser]: {
-        //     ...state[action.payload.authedUser],
-        //     questions: users[action.payload.authedUser].questions.concat([action.payload.formattedQuestion.id])
-        //   }
-        // }
+          case "UPDATEUSERCREATEDQUESTION":
+            return state= {
+            ...state,
+          [action.payload.authedUser]: {
+            ...state[action.payload.authedUser],
+            questions: users[action.payload.authedUser].questions.concat([action.payload.formattedQuestion.id])
+          }
+        }
 
         //   case "UPDATEUSERNEWANSWER":
     //     return state= {

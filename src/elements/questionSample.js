@@ -1,14 +1,8 @@
-import {useState, useEffect} from "react";
+import { useEffect } from "react";
 import {  useSelector, useDispatch } from "react-redux";
 import { QIDtoState } from "../Actions";
-// import "../style/allBoxes.css";
 import "../style/main.css"
-import {
-    Route,
-    Routes,
-    Router, 
-    Link
-  } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const QuestionSample = (props) => {
 
@@ -29,13 +23,16 @@ const QuestionSample = (props) => {
     }
 
     useEffect(()=>{
+        console.log("users+++++++++++++++++++", users);
+        console.log("questionsData[props.question]+++++++++++++++++++", questionsData[props.question]);
+        console.log("props+++++++++++++++++++", props);
         console.log("props.question is2", props.question);
         console.log("questionData[props.question] is:", questionsData[props.question])
         console.log("props.questionID", props.questionID);
     }, [])
 
     const passingQid = () => {
-        console.log("props.question ON CLICK is !!!!!!!!!!!!!!!!!!!!!!!!!!!!!:", props.question)
+        // console.log("props.question ON CLICK is !!!!!!!!!!!!!!!!!!!!!!!!!!!!!:", props.question)/////////////////
         dispatch(QIDtoState(props.question))
 
     }
