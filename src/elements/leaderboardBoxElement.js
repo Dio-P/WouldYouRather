@@ -1,5 +1,5 @@
+import { useEffect } from "react";
 import {  useSelector, useDispatch } from "react-redux";
-// import "../style/allBoxes.css";
 import "../style/main.css";
 
 
@@ -7,6 +7,11 @@ const LeaderBox = (props) => {
     const questionsData = useSelector(state=> state.getQuestions)
     const users = useSelector(state=> state.getUsers)
     const partID = useSelector(state=> state.logID)
+
+    useEffect(()=>{
+        console.log("users are!@#$%&*&^%$#@!^#%@$#^$*@", users);
+
+    }, [])
 
     // const countingScore = () => {
     //     let questions = Object.values(questionsData);
@@ -35,7 +40,7 @@ const LeaderBox = (props) => {
     return (
         <div class="box">
             <div class="avatarHolder"> 
-                <img id="userAvatar" src={users[partID].avatarURL} alt="a random user avatar"/>
+                <img id="userAvatar" src={users[props.user.id].avatarURL} alt="a random user avatar"/>
             </div>
             <div>
                 <h1>User Name {props.user.name}</h1>
