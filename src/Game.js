@@ -42,7 +42,9 @@ const GamePage = (props) => {
         //     dispatch(questionsInState(questions));
 
             // initialQuestions.push(questions);
+            console.log("users[partID].id is___________________+++++++", users[partID].id);
             console.log("Object.values(questionsData)??????????????????????", Object.values(questionsData));
+            console.log("True or false????????????????????????", Object.values(questionsData)[1].optionOne.votes.includes(users[partID].id))
             Object.values(questionsData).map(question=>(
                 question.optionOne.votes.includes(users[partID].id) || question.optionTwo.votes.includes(users[partID].id)? 
                 answeredQuestionsPrep.push(question.id):

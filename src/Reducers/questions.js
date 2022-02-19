@@ -21,16 +21,17 @@ let questions =(state={}, action) => {
             case "SAVENEWANSWER":
               console.log("action after saving new answer********************", action)
               console.log("state after saving new answer********************", state) 
-              return {
+              return state = {
                     ...state,
-                [state.action.payload.qid]: {
-                  ...state[state.action.payload.qid],
-                  [state.action.payload.answer]: {
-                    ...state[state.action.payload.qid][state.action.payload.answer],
-                    votes: state[state.action.payload.qid][state.action.payload.answer].votes.concat([state.action.payload.authedUser])
+                [action.payload.qid]: {
+                  ...state[action.payload.qid],
+                  [action.payload.answer]: {
+                    ...state[action.payload.qid][action.payload.answer],
+                    votes: state[action.payload.qid][action.payload.answer].votes.concat(action.payload.authedUser)
                   }
                 }
               }
+            
             
               default: {
                 return state
