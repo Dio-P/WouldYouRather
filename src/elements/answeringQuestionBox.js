@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import {  useSelector, useDispatch } from "react-redux";
 // import "../style/allBoxes.css";
 import singleQuestionID from "../Reducers/singleQuestionId";
-import { questionsInState } from "../Actions";
+import { questionsInState, saveUserNewAnswer, saveNewAnswer } from "../Actions";
 import { _saveQuestionAnswer} from "../_DATA";
 import {
     Route,
@@ -30,8 +30,11 @@ const QuestionBox = (props) => {
         const returnedAnswer = event.target.value;
         console.log("returnedA", returnedAnswer);
         // return returnedAnswer
-        _saveQuestionAnswer ({ authedUser: partID, qid: questionID, answer: returnedAnswer});
-        // dispatch(questionsInState(questions));
+        _saveQuestionAnswer ({ authedUser: partID, qid: questionID, answer: returnedAnswer });
+        dispatch(saveNewAnswer({ authedUser: partID, qid: questionID, answer: returnedAnswer }))
+        console.log("saveNewAnswer have been dispached&&&&&&&&&&&");
+        dispatch(saveUserNewAnswer({ authedUser: partID, qid: questionID, answer: returnedAnswer }));
+        console.log("saveUserNewAnswer have been dispached&&&&&&&&&&&");
         navigate("/results")
     }
 

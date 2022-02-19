@@ -18,19 +18,19 @@ let questions =(state={}, action) => {
                 [action.payload.id]: action.payload
               }
 
-            // case "SAVENEWANSWER":
-            //   console.log("action after saving new answer", action)
-            //   console.log("state after saving new answer", state) 
-            //   return {
-              //     ...state,
-              // [state.action.payload.qid]: {
-              //   ...state[state.action.payload.qid],
-              //   [answer]: {
-              //     ...state[state.action.payload.qid][state.action.payload.answer],
-              //     votes: state[state.action.payload.qid][state.action.payload.answer].votes.concat([state.action.payload.authedUser])
-              //   }
-              // }
-            //   }
+            case "SAVENEWANSWER":
+              console.log("action after saving new answer********************", action)
+              console.log("state after saving new answer********************", state) 
+              return {
+                    ...state,
+                [state.action.payload.qid]: {
+                  ...state[state.action.payload.qid],
+                  [state.action.payload.answer]: {
+                    ...state[state.action.payload.qid][state.action.payload.answer],
+                    votes: state[state.action.payload.qid][state.action.payload.answer].votes.concat([state.action.payload.authedUser])
+                  }
+                }
+              }
             
               default: {
                 return state

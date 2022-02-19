@@ -21,17 +21,20 @@ let users = (state={}, action)=>{
           }
         }
 
-        //   case "UPDATEUSERNEWANSWER":
-    //     return state= {
-        //   ...users,
-        //   [action.payload.authedUser]: {
-        //     ...users[action.payload.authedUser],
-        //     answers: {
-        //       ...users[action.payload.authedUser].answers,
-        //       [action.payload.qid]: answer
-        //     }
-        //   }
-        // }
+          case "UPDATEUSERNEWANSWER":
+            console.log("action after updating new a to user***************", action)
+            console.log("state after updating new a to user***************", state) 
+            
+          return state= {
+            ...state,
+            [action.payload.authedUser]: {
+              ...state[action.payload.authedUser],
+              answers: {
+                ...state[action.payload.authedUser].answers,
+                [action.payload.qid]: action.payload.answer
+            }
+          }
+        }
 
             default: {
                 return state;

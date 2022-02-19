@@ -59,21 +59,21 @@ export const updatingNewQuestionUserCreated = (newUserQuestionData) => {
 }
 
 
-// export const saveNewAnswer = (newAnswer) => {
-//     return{
-//         type: "SAVENEWANSWER",
-//         payload: newAnswer
-//     }
+export const saveNewAnswer = (newAnswer) => {
+    return{
+        type: "SAVENEWANSWER",
+        payload: newAnswer
+    }
     
-// }
+}
 
-// export const saveUserNewAnswer = (userNewAnswer) => {
-//     return{
-//         type: "UPDATEUSERNEWANSWER",
-//         payload: userNewAnswer
-//     }
+export const saveUserNewAnswer = (userNewAnswer) => {
+    return{
+        type: "UPDATEUSERNEWANSWER",
+        payload: userNewAnswer
+    }
     
-// }
+}
 
 export const giveUserDetails = () => {
     return{
