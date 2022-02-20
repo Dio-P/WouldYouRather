@@ -48,6 +48,17 @@ function App() {
   useEffect(()=> {
     console.log("new Question Id is: ", questionId);
   }, [questionId])
+
+  const useAuth= () => {
+    const user = { loggedIn: false };
+    return user && user.loggedIn;
+  };
+
+  function PrivateRoute({ children }) {
+    const auth = useAuth();
+    return auth ? children : <Navigate to="/login" />;
+  };
+  
   
 
   return (
