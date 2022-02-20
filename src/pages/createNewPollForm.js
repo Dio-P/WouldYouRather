@@ -7,7 +7,6 @@ import { _saveQuestion } from "../_DATA";
 
 import "../style/main.css"
 
-
 const CreateQuestionForm =() => {
 
     const [optionOneText, setOptionOneText] = useState("");

@@ -27,7 +27,7 @@ const Header = (props) => {
             (<div> You are loged on as {users[partID].name} <button id="logOnOffBtn" onClick={()=>dispatch(signIn())}>Log Off</button> </div>)
             :
             <button id="logOnOffBtn">Log In</button>}
-            <Link to="/"><button className="main_button_style many_buttons_relation"> Home </button></Link>
+            <Link to="/home"><button className="main_button_style many_buttons_relation"> Home </button></Link>
            <Link to="/leaderboard"><button className="main_button_style many_buttons_relation"> LeaderBoard </button></Link> 
            <Link to="/add"><button className="main_button_style many_buttons_relation"> Add Question </button></Link>
         </div>

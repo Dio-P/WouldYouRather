@@ -8,7 +8,9 @@ import GamePage from './Game';
 import {
   Route,
   Routes,
-  Router
+  Navigate,
+  Outlet,
+  useNavigate
 } from "react-router-dom";
 import LeaderBox from './elements/leaderboardBoxElement';
 import LeaderboardPage from './pages/leaderboard';
@@ -18,6 +20,9 @@ import { getInitQuestions, getInitUsers } from "./dataConnect/dateMiddleLink";
 import Loading from "./pages/loading"
 import {__esModule} from 'redux-devtools-extension'
 import SingleQResults from "./pages/resultsSingleQuestions";
+import ProtectedRoutes from "./protectedRoutes";
+
+
 
 const mapStateToProps = state => { 
   return {
@@ -31,9 +36,10 @@ function App() {
   const [questionId, setQuestionId] = useState("")
 
   const counter = useSelector(state=> state.counter);
-  const logedIn = useSelector(state=> state.isLogged);
+  const loggedIn = useSelector(state=> state.isLogged);
   const users = useSelector(state=> state.getUsers);
   const loading= useSelector(state=> state.loading);
+  let navigate = useNavigate();
   const dispatch = useDispatch();
 
   useEffect(()=>{
@@ -49,41 +55,33 @@ function App() {
     console.log("new Question Id is: ", questionId);
   }, [questionId])
 
-  const useAuth= () => {
-    const user = { loggedIn: false };
-    return user && user.loggedIn;
-  };
+  useEffect(()=>{
+    return loggedIn?navigate("/home")
+    : navigate("/") 
+  }, [loggedIn])
 
-  function PrivateRoute({ children }) {
-    const auth = useAuth();
-    return auth ? children : <Navigate to="/login" />;
+  const ProtectedRoutes=() => {
+    return loggedIn?
+    <Outlet/>:
+    <LogInPage/>
   };
-  
   
 
   return (
     <div className="App">
       
       <Routes>
-        {/* <h1>Counter {counter}</h1>
-        <button onClick={()=> dispatch(increment(5))}>+</button>
-        <button onClick={()=> dispatch(decrement())}>-</button> */}
-        
-        {loading===true}?
-        <Route path="pageLoading" element={<Loading/>}/>:
-        {logedIn===true? 
-          <Route path="/" element={<GamePage 
+       
+        <Route path="/" element={<LogInPage/>}/>
+        <Route element={<ProtectedRoutes/>}>
+          <Route path="/home" element={<GamePage 
             questionId={(questionID)=> setQuestionId(questionID)}
             />}/>
-          :
-          
-        <Route path="/" element={<LogInPage/>}/>
-        }
-        <Route path="leaderboard" element={<LeaderboardPage/>}/>
-        <Route path="/add" element={<CreateQuestionForm/>}/>
-        <Route path="question/:question_id" element={<SinglePageQuestion question={questionId}/>}/>
-        <Route path="/results" element={<SingleQResults/>}/>
-        
+          <Route path="leaderboard" element={<LeaderboardPage/>}/>
+          <Route path="/add" element={<CreateQuestionForm/>}/>
+          <Route path="question/:question_id" element={<SinglePageQuestion question={questionId}/>}/>
+          <Route path="/results" element={<SingleQResults/>}/>
+        </Route>
       </Routes>
   </div>
   );

@@ -1,13 +1,13 @@
-import { Outlet } from "react-router";
-import SignIn from "./componenets/signIn";
+// import { Outlet } from "react-router";
+// import SignIn from "./componenets/signIn";
 
-const useAuth = () => {
-    const user = { loggedIn: false };
-    return user && user.loggedIn;
-}
+// const useAuth = () => {
+//     const user = { loggedIn: false };
+//     return user && user.loggedIn;
+// }
 
-const ProtectedRoutes = () => {
-    const isAuth = useAuth();
-    return isAuth ? <Outlet/> : <SignIn/>
-}
-export default ProtectedRoutes;
+// const ProtectedRoutes = () => {
+//     const isAuth = useAuth();
+//     return isAuth ? <Outlet/> : <SignIn/>
+// }
+// export default ProtectedRoutes;
