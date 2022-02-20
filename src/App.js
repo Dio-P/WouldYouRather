@@ -61,10 +61,23 @@ function App() {
   }, [loggedIn])
 
   const ProtectedRoutes=() => {
-    return loggedIn?
-    <Outlet/>:
-    <LogInPage/>
+    // return loggedIn?
+    // <Outlet/>:
+    // <LogInPage/>
+    if(loggedIn){
+      return <Outlet/>
+    }else if(loggedIn===false){
+      return <LogInPage/>
+    }else{
+      console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@else");
+    }
+    
   };
+
+  const RedirectToHome = () => {
+    return navigate("/home");
+    
+}
   
 
   return (
@@ -82,6 +95,7 @@ function App() {
           <Route path="question/:question_id" element={<SinglePageQuestion question={questionId}/>}/>
           <Route path="/results" element={<SingleQResults/>}/>
         </Route>
+        <Route element={<RedirectToHome/>} /> 
       </Routes>
   </div>
   );
