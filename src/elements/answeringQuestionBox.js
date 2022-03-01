@@ -19,7 +19,7 @@ const QuestionBox = (props) => {
     const questionID = useSelector(state=> state.questionID);
     const users = useSelector(state=> state.getUsers);
     const partID = useSelector(state=> state.logID);
-    const [Answer, setAnswer] = useState("")
+    const [answer, setAnswer] = useState("")
     let navigate = useNavigate();
     const dispatch = useDispatch();
 
@@ -27,14 +27,13 @@ const QuestionBox = (props) => {
 
     const returningAnswer = (event) => {
         event.preventDefault()
-        const returnedAnswer = event.target.value;
-        console.log("returnedA", returnedAnswer);
-        // return returnedAnswer
-        _saveQuestionAnswer ({ authedUser: partID, qid: questionID, answer: returnedAnswer });
-        dispatch(saveNewAnswer({ authedUser: partID, qid: questionID, answer: returnedAnswer }))
-        console.log("saveNewAnswer have been dispached&&&&&&&&&&&");
-        dispatch(saveUserNewAnswer({ authedUser: partID, qid: questionID, answer: returnedAnswer }));
-        console.log("saveUserNewAnswer have been dispached&&&&&&&&&&&");
+        // const returnedAnswer = event.target.value;
+        console.log("returnedA", answer);
+        _saveQuestionAnswer ({ authedUser: partID, qid: questionID, answer: answer });
+        dispatch(saveNewAnswer({ authedUser: partID, qid: questionID, answer: answer }))
+        console.log("saveNewAnswer have been dispached&&&&&&&&&&&");//////////////
+        dispatch(saveUserNewAnswer({ authedUser: partID, qid: questionID, answer: answer }));
+        console.log("saveUserNewAnswer have been dispached&&&&&&&&&&&");////////////////////
         navigate("/results")
     }
 
@@ -49,20 +48,20 @@ const QuestionBox = (props) => {
             <div className="avatarHolder"> 
                 <img id="userAvatar" src={users[questionsData[questionID].author].avatarURL} alt="a random user avatar"/>
             </div>
-            <fieldset className="main_fieldset" onChange={(event)=> returningAnswer(event)}>
-                {/* <form onSubmit={(event) => submitQuestion(event)}> */}
+            {/* <fieldset className="main_fieldset" onChange={(event)=> returningAnswer(event)}> */}
+                <form className="main_fieldset" onSubmit={returningAnswer}>
                     <div>
                         <input type= "checkbox" onChange={event=> setAnswer(event.target.value)} id="a1" name="a1" value="optionOne"/>
                         <label for="a1">{questionsData[questionID].optionOne.text}</label>
                         {/* setAnswer(event.target.value) */}
                     </div>
                     <div>
-                        <input type= "checkbox" id="a2" name="a2" value="optionTwo"/>
+                        <input type= "checkbox" onChange={event=> setAnswer(event.target.value)} id="a2" name="a2" value="optionTwo"/>
                         <label>{questionsData[questionID].optionTwo.text}</label>
                     </div>
                     <button type="submit" className="button"> Submit</button>
-                {/* </form> */}
-            </fieldset>
+                </form>
+            {/* </fieldset> */}
         </div>
     )
 }

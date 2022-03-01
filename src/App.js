@@ -52,7 +52,7 @@ function App() {
   },[])
 
   useEffect(()=> {
-    console.log("new Question Id is: ", questionId);
+    console.log("new Question Id is: ", questionId);//////////////////////////
   }, [questionId])
 
   useEffect(()=>{
@@ -69,7 +69,7 @@ function App() {
     }else if(loggedIn===false){
       return <LogInPage/>
     }else{
-      console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@else");
+      console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@else");/////////////////////
     }
     
   };
@@ -92,7 +92,7 @@ function App() {
             />}/>
           <Route path="leaderboard" element={<LeaderboardPage/>}/>
           <Route path="/add" element={<CreateQuestionForm/>}/>
-          <Route path="question/:question_id" element={<SinglePageQuestion question={questionId}/>}/>
+          <Route path="/question/:question_id" element={<SinglePageQuestion question={questionId}/>}/>
           <Route path="/results" element={<SingleQResults/>}/>
         </Route>
         <Route element={<RedirectToHome/>} /> 
