@@ -19,10 +19,12 @@ const QuestionBox = (props) => {
     const questionID = useSelector(state=> state.questionID);
     const users = useSelector(state=> state.getUsers);
     const partID = useSelector(state=> state.logID);
-    const [answer, setAnswer] = useState("")
     let navigate = useNavigate();
     const dispatch = useDispatch();
+    const [answer, setAnswer] = useState("");
+    const [checked, setChecked] = useState({optionOneChecked: false, optionTwoChecked: false })
 
+   
 
 
     const returningAnswer = (event) => {
@@ -51,12 +53,18 @@ const QuestionBox = (props) => {
             {/* <fieldset className="main_fieldset" onChange={(event)=> returningAnswer(event)}> */}
                 <form className="main_fieldset" onSubmit={returningAnswer}>
                     <div>
-                        <input type= "checkbox" onChange={event=> setAnswer(event.target.value)} id="a1" name="a1" value="optionOne"/>
+                        <input type= "checkbox" onChange={event=> {
+                            setAnswer(event.target.value)
+                            setChecked({optionOneChecked: true, optionTwoChecked: false})
+                            }} checked={checked.optionOneChecked} id="a1" name="a1" value="optionOne"/>
                         <label for="a1">{questionsData[questionID].optionOne.text}</label>
                         {/* setAnswer(event.target.value) */}
                     </div>
                     <div>
-                        <input type= "checkbox" onChange={event=> setAnswer(event.target.value)} id="a2" name="a2" value="optionTwo"/>
+                        <input type= "checkbox" onChange={event=> {
+                            setAnswer(event.target.value)
+                            setChecked({optionOneChecked: false, optionTwoChecked: true})
+                            }} checked={checked.optionTwoChecked} id="a2" name="a2" value="optionTwo"/>
                         <label>{questionsData[questionID].optionTwo.text}</label>
                     </div>
                     <button type="submit" className="button"> Submit</button>
