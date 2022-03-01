@@ -12,6 +12,7 @@ const QuestionSample = (props) => {
     const partID = useSelector(state=> state.logID)
     const dispatch = useDispatch();
     const question=props.question;
+    let questionAnswered = Object.keys(users[partID].answers).includes(props.question);
 
 
 
@@ -50,7 +51,7 @@ const QuestionSample = (props) => {
                 </div>
                 <div>
                 <Link  to={{pathname: "/question/:question_id",
-                state: {question:props.question}}}><button className="main_button_style" onClick={passingQid}> Answer Question</button></Link>
+                state: {question:props.question}}}><button className="main_button_style" onClick={passingQid}> {questionAnswered? "View Question": "Answer Question"}</button></Link>
                 </div>
             </fieldset>
         </div>
