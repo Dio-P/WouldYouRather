@@ -11,7 +11,7 @@ import Header from "../elements/header";
 import "../style/main.css"
 
 const SinglePageQuestion = () => {
-    const location = useLocation();
+    // const location = useLocation();
     // const  {question} = location.state.question;
     const questionID = useSelector(state=> state.questionID)
 

@@ -10,6 +10,7 @@ const LeaderBox = (props) => {
     const [ totalScore, setTotalScore ] = useState(0)
     const [ totalQuestionsAnswered, setTotalQuestionsAnswered ] = useState(0)
     const [ totalQuestionsCreated, setTotalQuestionsCreated ] = useState(0)
+    const gettingTotalScores = props.gettingTotalScores;
 
     useEffect(()=>{
         // console.log("users are!@#$%&*&^%$#@!^#%@$#^$*@", users);/////////////
@@ -31,6 +32,12 @@ const LeaderBox = (props) => {
         setTotalScore(totalQuestionsCreated + totalQuestionsAnswered)
     }, [totalQuestionsCreated, totalQuestionsAnswered])
 
+    useEffect(() => {
+        console.log("totalScore", totalScore);
+        gettingTotalScores({totalScore, userID: props.user.id})
+        
+    }, [totalScore])
+
 
     return (
         <div class="box">
@@ -38,7 +45,7 @@ const LeaderBox = (props) => {
                 <img id="userAvatar" src={users[props.user.id].avatarURL} alt="a random user avatar"/>
             </div>
             <div>
-                <h1>User Name {props.user.name}</h1>
+                <h1>{props.user.name}</h1>
             
             <div>
                 <h3>Answered Questions: {totalQuestionsAnswered}</h3>

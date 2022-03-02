@@ -30,9 +30,9 @@ const QuestionBox = (props) => {
     const updatingTheState = () => {
         _saveQuestionAnswer ({ authedUser: partID, qid: questionID, answer: answer });
         dispatch(saveNewAnswer({ authedUser: partID, qid: questionID, answer: answer }))
-        console.log("saveNewAnswer have been dispached&&&&&&&&&&&");//////////////
+        // console.log("saveNewAnswer have been dispached&&&&&&&&&&&");//////////////
         dispatch(saveUserNewAnswer({ authedUser: partID, qid: questionID, answer: answer }));
-        console.log("saveUserNewAnswer have been dispached&&&&&&&&&&&");////////////////////
+        // console.log("saveUserNewAnswer have been dispached&&&&&&&&&&&");////////////////////
         
     }
 
@@ -47,18 +47,22 @@ const QuestionBox = (props) => {
         navigate("/results")
     }
 
-    useEffect(()=>{
-        // console.log( "Object.keys(users[partID].answers)", Object.keys(users[partID].answers))
-        console.log("props.question is2", props.question);////////////////////
-        console.log("questionData[props.question] is:", questionsData[props.question])////////////////////
-        console.log("questionAnswered", questionAnswered);////////////////////
-        // setQuestionAnswered(questionsData[questionID].optionOne.votes.includes(partID) || questionsData[questionID].optionTwo.votes.includes(partID))
-    }, [])
-
-    useEffect(() => {
-        console.log("questionAnswered", questionAnswered);
+    // const clickingOnAnswer = () => {
         
-    }, [questionAnswered])
+    // }
+
+    // useEffect(()=>{
+        // console.log( "Object.keys(users[partID].answers)", Object.keys(users[partID].answers))
+        // console.log("props.question is2", props.question);////////////////////
+        // console.log("questionData[props.question] is:", questionsData[props.question])////////////////////
+        // console.log("questionAnswered", questionAnswered);////////////////////
+        // setQuestionAnswered(questionsData[questionID].optionOne.votes.includes(partID) || questionsData[questionID].optionTwo.votes.includes(partID))
+    // }, [])
+
+    // useEffect(() => {
+    //     console.log("questionAnswered", questionAnswered);
+        
+    // }, [questionAnswered]);
 
 
     return(
@@ -71,14 +75,16 @@ const QuestionBox = (props) => {
                     <div>
                         <input type= "checkbox" onChange={event=> {
                             setAnswer(event.target.value)
-                            setChecked({optionOneChecked: true, optionTwoChecked: false})
+                            if(!questionAnswered){
+                            setChecked({optionOneChecked: true, optionTwoChecked: false})}
                             }} checked={checked.optionOneChecked} id="a1" name="a1" value="optionOne"/>
                         <label for="a1">{questionsData[questionID].optionOne.text}</label>
                     </div>
                     <div>
                         <input type= "checkbox" onChange={event=> {
                             setAnswer(event.target.value)
-                            setChecked({optionOneChecked: false, optionTwoChecked: true})
+                            if(!questionAnswered){
+                            setChecked({optionOneChecked: false, optionTwoChecked: true})}
                             }} checked={checked.optionTwoChecked} id="a2" name="a2" value="optionTwo"/>
                         <label>{questionsData[questionID].optionTwo.text}</label>
                     </div>

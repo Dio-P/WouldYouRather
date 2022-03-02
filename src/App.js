@@ -8,19 +8,19 @@ import GamePage from './Game';
 import {
   Route,
   Routes,
-  Navigate,
+  // Navigate,
   Outlet,
   useNavigate
 } from "react-router-dom";
-import LeaderBox from './elements/leaderboardBoxElement';
+// import LeaderBox from './elements/leaderboardBoxElement';
 import LeaderboardPage from './pages/leaderboard';
 import CreateQuestionForm from './pages/createNewPollForm';
 import SinglePageQuestion from './pages/singleQuestionPage';
 import { getInitQuestions, getInitUsers } from "./dataConnect/dateMiddleLink";
-import Loading from "./pages/loading"
-import {__esModule} from 'redux-devtools-extension'
+// import Loading from "./pages/loading"
+// import {__esModule} from 'redux-devtools-extension'
 import SingleQResults from "./pages/resultsSingleQuestions";
-import ProtectedRoutes from "./protectedRoutes";
+// import ProtectedRoutes from "./protectedRoutes";
 
 
 
@@ -51,9 +51,9 @@ function App() {
 
   },[])
 
-  useEffect(()=> {
-    console.log("new Question Id is: ", questionId);//////////////////////////
-  }, [questionId])
+  // useEffect(()=> {
+  //   // console.log("new Question Id is: ", questionId);//////////////////////////
+  // }, [questionId])
 
   useEffect(()=>{
     return loggedIn?navigate("/home")
@@ -69,7 +69,7 @@ function App() {
     }else if(loggedIn===false){
       return <LogInPage/>
     }else{
-      console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@else");/////////////////////
+      // console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@else");/////////////////////
     }
     
   };
