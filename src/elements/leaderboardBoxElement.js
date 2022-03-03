@@ -32,11 +32,11 @@ const LeaderBox = (props) => {
         setTotalScore(totalQuestionsCreated + totalQuestionsAnswered)
     }, [totalQuestionsCreated, totalQuestionsAnswered])
 
-    useEffect(() => {
-        console.log("totalScore", totalScore);
-        gettingTotalScores({totalScore, userID: props.user.id})
+    // useEffect(() => {
+    //     console.log("totalScore", totalScore);
+    //     gettingTotalScores({totalScore, userID: props.user.id})
         
-    }, [totalScore])
+    // }, [totalScore])
 
 
     return (
