@@ -13,10 +13,18 @@
     width: 120px;
 }
 
-#userAvatar {
+.userAvatar {
     width: 100%
 }
 
-#scoreHolder{
+.scoreHolder{
+    background-color: salmon;
+    height: 60px;
+    padding: .4em;
+    border-radius: 70px;
+    margin-left: 0.8em;
+    margin-top: 2.5em;
+   
 
 }
+
