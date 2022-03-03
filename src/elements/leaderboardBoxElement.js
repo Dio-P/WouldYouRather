@@ -1,12 +1,9 @@
-import { useEffect, useState } from "react";
-import {  useSelector, useDispatch } from "react-redux";
+import {  useSelector } from "react-redux";
 import "../style/main.css";
 
 
 const LeaderBox = ({ user }) => {
-
-    const users = useSelector(state=> state.getUsers)
-    const loggedUserID = useSelector(state=> state.logID)/////////////
+    const loggedUserID = useSelector(state=> state.logID)
 
     return (
          

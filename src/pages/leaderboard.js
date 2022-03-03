@@ -7,19 +7,17 @@ import "../style/main.css";
 const LeaderboardPage =() => {
     const users = useSelector(state=> state.getUsers);
     const [sortedUsersInOrder, setSortedUsersInOrder] = useState([])
-    let sortedUsers = Object.values(users)   
+    let sortedUsersTemp = Object.values(users)   
     
     useEffect(()=>{
         
-            console.log("users", users);
-            console.log("sortedUser", sortedUsers);
-            sortedUsers.map(user => { return user["scores"]= { 
+            sortedUsersTemp.map(user => { return user["scores"]= { 
             totalQuestionsAnswered: Object.keys(user.answers).length, 
             totalQuestionsCreated: user.questions.length,
             totalScore: (Object.keys(user.answers).length+ user.questions.length)
             }
         })
-        let sortedUsersInOrderTemp = sortedUsers.sort((a,b)=>a.scores.totalScore - b.scores.totalScore).reverse();
+        let sortedUsersInOrderTemp = sortedUsersTemp.sort((a,b)=>a.scores.totalScore - b.scores.totalScore).reverse();
         setSortedUsersInOrder(sortedUsersInOrderTemp)
         
     }, [users])
