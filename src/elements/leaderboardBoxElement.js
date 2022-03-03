@@ -6,7 +6,7 @@ import "../style/main.css";
 const LeaderBox = ({ user }) => {
 
     const users = useSelector(state=> state.getUsers)
-    const partID = useSelector(state=> state.logID)/////////////
+    const loggedUserID = useSelector(state=> state.logID)/////////////
 
     return (
          
@@ -16,7 +16,7 @@ const LeaderBox = ({ user }) => {
                 <img className="userAvatar" src={user.avatarURL} alt="a random user avatar"/>
             </div>
             <div>
-                <h1>{user.name}</h1>
+                <h1 className={(user.id==loggedUserID)? "loggedUser":""}>{user.name}</h1>
             
             <div>
                 <h3>Answered Questions: {user.scores.totalQuestionsAnswered}</h3>

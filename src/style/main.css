@@ -11,6 +11,11 @@
 
 }
 
+.loggedUser{
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: rgb(248, 224, 3);
+}
+
 .main_button_style {
     background-color: salmon;
     /* height: 30px; */
