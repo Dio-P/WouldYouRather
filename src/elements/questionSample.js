@@ -1,18 +1,27 @@
+import React, { useEffect } from 'react';
 import {  useSelector, useDispatch } from "react-redux";
 import { QIDtoState } from "../Actions";
 import "../style/main.css"
 import { Link } from "react-router-dom";
 
-const QuestionSample = (props) => {
+const QuestionSample = ({ question }) => {
 
     
     const questionsData = useSelector(state=> state.getQuestions)
     const users = useSelector(state=> state.getUsers)
     const loggedUserID = useSelector(state=> state.logID)
     const dispatch = useDispatch();
+    const questionToUse = Object.values(question);
     
-    let questionAnswered = Object.keys(users[loggedUserID].answers).includes(props.question);
+    // let questionAnswered = Object.keys(users[loggedUserID].answers).includes(props.question);
 
+    // useEffect(()=>{
+        // console.log("displayState",displayState);///////////////
+        console.log("!!!!!!!!!!!!!!!!!!question", question);//////////////////
+        // console.log("answeredQuestions", answeredQuestions);////////////////
+        console.log("questionToUse", questionToUse);////////////////
+
+    // }, [])
 
 
     const returningAnswer = (event) => {
@@ -22,22 +31,22 @@ const QuestionSample = (props) => {
     }
 
     const passingQid = () => {
-        dispatch(QIDtoState(props.question))
+        dispatch(QIDtoState(question.id))
 
     }
 
     return(
         <div className="main_card_style game_quest_sample">
             <div className="avatarHolder"> 
-                <img className="userAvatar" src={users[questionsData[props.question].author].avatarURL} alt="a random user avatar"/>
+                <img className="userAvatar" src={users[questionsData[question.id].author].avatarURL} alt="a random user avatar"/>
             </div>
             <fieldset className="main_fieldset" onChange={(event)=> returningAnswer(event)}>
                 <div>
-                <h4>...{questionsData[props.question].optionOne.text}...</h4>
+                <h4>...{questionsData[question.id].optionOne.text}...</h4>
                 </div>
                 <div>
-                <Link  to={{pathname: `/question/:${props.question}`,
-                state: {question:props.question}}}><button className="main_button_style" onClick={passingQid}> {questionAnswered? "View Question": "Answer Question"}</button></Link>
+                <Link  to={{pathname: `/question/:${question.id}`,
+                state: {question:question.id}}}><button className="main_button_style" onClick={passingQid}> {questionToUse.answered? "View Question": "Answer Question"}</button></Link>
                 </div>
             </fieldset>
         </div>

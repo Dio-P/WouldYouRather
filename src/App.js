@@ -1,26 +1,20 @@
 import {useState, useEffect} from "react";
-import logo from './logo.svg';
-import './App.css';
 import {  useSelector, useDispatch, connect } from "react-redux";
-import { gettingUsers, gettingQuestions, questionsInState, usersInState } from "./Actions";
+import { questionsInState, usersInState } from "./Actions";
 import LogInPage from './loginPage';
 import GamePage from './Game';
 import {
   Route,
   Routes,
-  // Navigate,
   Outlet,
   useNavigate
 } from "react-router-dom";
-// import LeaderBox from './elements/leaderboardBoxElement';
 import LeaderboardPage from './pages/leaderboard';
 import CreateQuestionForm from './pages/createNewPollForm';
 import SinglePageQuestion from './pages/singleQuestionPage';
 import { getInitQuestions, getInitUsers } from "./dataConnect/dateMiddleLink";
-// import Loading from "./pages/loading"
-// import {__esModule} from 'redux-devtools-extension'
 import SingleQResults from "./pages/resultsSingleQuestions";
-// import ProtectedRoutes from "./protectedRoutes";
+import './App.css';
 
 
 
@@ -51,40 +45,27 @@ function App() {
 
   },[])
 
-  // useEffect(()=> {
-  //   // console.log("new Question Id is: ", questionId);//////////////////////////
-  // }, [questionId])
-
   useEffect(()=>{
     return loggedIn?navigate("/home")
     : navigate("/") 
   }, [loggedIn])
 
   const ProtectedRoutes=() => {
-    // return loggedIn?
-    // <Outlet/>:
-    // <LogInPage/>
     if(loggedIn){
       return <Outlet/>
     }else if(loggedIn===false){
       return <LogInPage/>
-    }else{
-      // console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@else");/////////////////////
     }
-    
   };
 
   const RedirectToHome = () => {
     return navigate("/home");
-    
 }
   
 
   return (
     <div className="App">
-      
       <Routes>
-       
         <Route path="/" element={<LogInPage/>}/>
         <Route element={<ProtectedRoutes/>}>
           <Route path="/home" element={<GamePage 
