@@ -7,9 +7,9 @@ const LeaderBox = ({ user }) => {
 
     return (
          
-        <div class="box">
+        <div className="box">
 
-            <div class="avatarHolder"> 
+            <div className="avatarHolder"> 
                 <img className="userAvatar" src={user.avatarURL} alt="a random user avatar"/>
             </div>
             <div>

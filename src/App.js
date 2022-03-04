@@ -1,8 +1,8 @@
-import {useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import {  useSelector, useDispatch, connect } from "react-redux";
 import { questionsInState, usersInState } from "./Actions";
-import LogInPage from './loginPage';
-import GamePage from './Game';
+import LogInPage from './pages/loginPage';
+import GamePage from './pages/game';
 import {
   Route,
   Routes,
@@ -12,7 +12,7 @@ import {
 import LeaderboardPage from './pages/leaderboard';
 import CreateQuestionForm from './pages/createNewPollForm';
 import SinglePageQuestion from './pages/singleQuestionPage';
-import { getInitQuestions, getInitUsers } from "./dataConnect/dateMiddleLink";
+import { getInitQuestions, getInitUsers } from "./dataConnect/dataMiddleLink";
 import SingleQResults from "./pages/resultsSingleQuestions";
 import './App.css';
 

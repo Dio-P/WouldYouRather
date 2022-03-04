@@ -45,7 +45,7 @@ const QuestionBox = () => {
                             if(!questionAnswered){
                             setChecked({optionOneChecked: true, optionTwoChecked: false})}
                             }} checked={checked.optionOneChecked} id="a1" name="a1" value="optionOne"/>
-                        <label for="a1">{questionsData[questionID].optionOne.text}</label>
+                        <label htmlFor="a1">{questionsData[questionID].optionOne.text}</label>
                     </div>
                     <div>
                         <input type= "checkbox" onChange={event=> {
@@ -53,7 +53,7 @@ const QuestionBox = () => {
                             if(!questionAnswered){
                             setChecked({optionOneChecked: false, optionTwoChecked: true})}
                             }} checked={checked.optionTwoChecked} id="a2" name="a2" value="optionTwo"/>
-                        <label>{questionsData[questionID].optionTwo.text}</label>
+                        <label htmlFor="a2">{questionsData[questionID].optionTwo.text}</label>
                     </div>
                     <button type="submit" className="button"> {questionAnswered? "View Poll": "Submit"} </button>
                 </form>

@@ -1,7 +1,3 @@
-import { AvatarGenerator } from 'random-avatar-generator';
- 
-const generator = new AvatarGenerator();
-
 let users = (state={}, action)=>{
     switch(action.type){
         case "GETUSERS":
@@ -11,8 +7,6 @@ let users = (state={}, action)=>{
             return action.payload
 
           case "UPDATEUSERCREATEDQUESTION":
-            console.log("action after updating new q to user@@@@@@@@@@@@@@@@@", action)
-            console.log("state after updating new q to user@@@@@@@@@@@@@@@@@", state) 
             return state= {
             ...state,
             [action.payload.auth]: {
@@ -22,9 +16,6 @@ let users = (state={}, action)=>{
         }
 
           case "UPDATEUSERNEWANSWER":
-            console.log("action after updating new a to user***************", action)
-            console.log("state after updating new a to user***************", state) 
-            
           return state= {
             ...state,
             [action.payload.authedUser]: {

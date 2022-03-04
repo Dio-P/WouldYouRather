@@ -28,7 +28,7 @@ const LeaderboardPage =() => {
             <Header/>
             <h1>LeaderBoard Page</h1>
             <div className="main_card_style leaderBoard_box">
-            {sortedUsersInOrder.map(user=>(<LeaderBox user={user}/>))}
+            {sortedUsersInOrder.map(user=>(<LeaderBox key={user.name} user={user}/>))}
             </div>
         </div>
     )

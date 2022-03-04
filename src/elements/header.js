@@ -1,10 +1,7 @@
-import React, {useState, useEffect} from "react"
 import {  useSelector, useDispatch, connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { signIn } from "../Actions";
 import "../style/header.css"
-import LeaderboardPage from "../pages/leaderboard";
-
 
 const mapStateToProps = state => { 
     return {
@@ -12,7 +9,7 @@ const mapStateToProps = state => {
     }
 }
 
-const Header = (props) => {
+const Header = () => {
 
     const users = useSelector(state=> state.getUsers)
     const partID = useSelector(state=> state.logID)

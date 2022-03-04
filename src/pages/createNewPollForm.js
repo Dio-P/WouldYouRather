@@ -12,8 +12,6 @@ const CreateQuestionForm =() => {
     const [optionOneText, setOptionOneText] = useState("");
     const [optionTwoText, setOptionTwoText] = useState("");
 
-    const questions = useSelector(state=> state.getQuestions)
-    const questionID = useSelector(state=> state.questionID)
     const users = useSelector(state=> state.getUsers)
     const partID = useSelector(state=> state.logID)
     const auth = users[partID].id
@@ -49,7 +47,7 @@ const CreateQuestionForm =() => {
         dispatch(updatingNewQuestionUserCreated({auth, formattedQuestion}));
         _saveQuestion(question);
         
-        navigate("/")
+        navigate("/home")
 
   }
 

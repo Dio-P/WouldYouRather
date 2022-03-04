@@ -1,4 +1,3 @@
-import counterReducer from "./counter";
 import loggedReducer from "./isLogged";
 import { combineReducers } from "redux";
 import users from "./users";
@@ -9,7 +8,6 @@ import singleQuestionID from "./singleQuestionId";
 
 
 const allReducers = combineReducers({
-    counter: counterReducer,
     isLogged: loggedReducer,
     getUsers: users,
     getQuestions: questions,
