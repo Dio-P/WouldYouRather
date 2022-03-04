@@ -24,7 +24,6 @@ let questions =(state={}, action) => {
                 }
               }
             
-            
               default: {
                 return state
               }

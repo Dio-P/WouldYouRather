@@ -7,27 +7,17 @@
 @import "./leaderBoard.css";
 
 
-.would_you_rather_title{
-
-}
-
 .loggedUser{
     -webkit-text-stroke-width: 0.5px;
     -webkit-text-stroke-color: rgb(248, 224, 3);
 }
 
 .main_button_style {
-    background-color: salmon;
-    /* height: 30px; */
-    
+    background-color: salmon;    
 }
 
 .many_buttons_relation {
     margin-left: 20px;
-}
-
-.main_button_link_style{
-
 }
 
 .main_card_style {
@@ -38,7 +28,6 @@
     background-color: ivory;
     border-radius: 40px;
     margin-top: 40px;
-    /* margin: auto; */
     align-items: center; 
 }
 

@@ -8,7 +8,6 @@ const logID=(state=[], action)=> {
             console.log("state", state) 
         return [action.payload]
         
-        // I was asking it to take string and produce object
         default: {
             return state
         }

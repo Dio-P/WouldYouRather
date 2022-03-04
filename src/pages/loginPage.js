@@ -6,7 +6,6 @@ const LogInPage= () => {
     let loginID="one"
 
     const users = useSelector(state=> state.getUsers)
-    // const partID = useSelector(state=> state.logID)
     const dispatch = useDispatch();
 
     const login = (event) =>{
