@@ -29,24 +29,23 @@ function App() {
 
   const [questionId, setQuestionId] = useState("")
 
-  const counter = useSelector(state=> state.counter);
+  // const counter = useSelector(state=> state.counter);
   const loggedIn = useSelector(state=> state.isLogged);
-  const users = useSelector(state=> state.getUsers);
-  const loading= useSelector(state=> state.loading);
+  // const users = useSelector(state=> state.getUsers);
+  // const loading= useSelector(state=> state.loading);
   let navigate = useNavigate();
   const dispatch = useDispatch();
 
   useEffect(()=>{
     getInitQuestions()
-    .then(questions=> {console.log("questions before dispatch in app are:", questions);dispatch(questionsInState(questions))})
+    .then(questions=> dispatch(questionsInState(questions)))
     getInitUsers()
-    .then(users=>{console.log("users before dispatch in app are", users); dispatch(usersInState(users))})
-    
+    .then(users=>dispatch(usersInState(users)))
 
   },[])
 
   useEffect(()=>{
-    return loggedIn?navigate("/home")
+    return loggedIn? navigate("/home")
     : navigate("/") 
   }, [loggedIn])
 

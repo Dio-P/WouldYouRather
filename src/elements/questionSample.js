@@ -1,4 +1,3 @@
-import React, { useEffect } from 'react';
 import {  useSelector, useDispatch } from "react-redux";
 import { QIDtoState } from "../Actions";
 import "../style/main.css"
@@ -11,14 +10,6 @@ const QuestionSample = ({ question }) => {
     const users = useSelector(state=> state.getUsers)
     const dispatch = useDispatch();
     const questionToUse = Object.values(question);
-    
-    // useEffect(()=>{
-        // console.log("displayState",displayState);///////////////
-        // console.log("!!!!!!!!!!!!!!!!!!question", question);//////////////////
-        // console.log("answeredQuestions", answeredQuestions);////////////////
-        // console.log("questionToUse", questionToUse);////////////////
-
-    // }, [])
 
 
     const returningAnswer = (event) => {

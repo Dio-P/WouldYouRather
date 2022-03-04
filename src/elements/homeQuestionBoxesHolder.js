@@ -1,17 +1,10 @@
-import {useState, useEffect} from "react"
+import { useState } from "react"
 import QuestionSample from "./questionSample"
 import "../style/main.css"
 
 const HomeBoxHolder = ({ unansweredQuestions, answeredQuestions }) => {
 
     const [displayState, setDisplayState] = useState(true);
-
-    // useEffect(()=>{
-    //     console.log("displayState",displayState);///////////////
-    //     console.log("unansweredQuestions", unansweredQuestions);//////////////////
-    //     console.log("answeredQuestions", answeredQuestions);////////////////
-    // }, [])
-
 
     return(
         <div className="main_home_all_quest_holder">
@@ -22,18 +15,15 @@ const HomeBoxHolder = ({ unansweredQuestions, answeredQuestions }) => {
             {(displayState===true)?
             <div>
                 {unansweredQuestions.map(question=>(
-                <QuestionSample 
-                question={question}
-                // questionId={questionId}
-                />
+                <QuestionSample key={question.id} 
+                question={question}/>
             ))}
             </div>
              :
             <div>
                 {answeredQuestions.map(question=>(
                 <QuestionSample question={question}
-                // questionId={questionId}
-                />
+                key={question.id}/>
             ))}
             </div>
             }

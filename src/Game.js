@@ -22,26 +22,13 @@ const GamePage = (props) => {
                     :
                     (question["unanswered"]= false,
                     unansweredQuestionsPrep.push(question))
-            //     answeredQuestionsPrep.push(question.id):
-            //     unansweredQuestionsPrep.push(question.id)
             ));
-            console.log("unansweredQuestions!1", answeredQuestionsPrep);//////////////////
-            console.log("answeredQuestions!1", answeredQuestionsPrep);////////////////
-            console.log("timestamp", answeredQuestionsPrep[0]);////////////////
             unansweredQuestionsPrep.sort((a,b)=> b.timestamp -a.timestamp)
             answeredQuestionsPrep.sort((a,b)=> b.timestamp - a.timestamp)
-            console.log("unansweredQuestions!2", unansweredQuestionsPrep);//////////////////
-            console.log("answeredQuestions!2", answeredQuestionsPrep);////////////////
+
             setUnansweredQuestions(unansweredQuestionsPrep);
             setAnsweredQuestions(answeredQuestionsPrep);
-            console.log("Object.values(questionsData)", Object.values(questionsData));
-            // console.log("answeredQuestionsPrep", answeredQuestionsPrep);
 },[])
-
-    // useEffect(() => {
-    //     console.log("unansweredQuestions", unansweredQuestions);//////////////////
-    //     console.log("answeredQuestions", answeredQuestions);////////////////  
-    // }, [unansweredQuestions, answeredQuestions]);
 
     return(
         <div>
@@ -53,7 +40,6 @@ const GamePage = (props) => {
             unansweredQuestions={unansweredQuestions}
             questionId={props.questionId}
             />
-            
         </div>
     )
 }

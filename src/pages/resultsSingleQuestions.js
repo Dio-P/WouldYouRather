@@ -13,22 +13,14 @@ const SingleQResults = () => {
 
   
     const optionOneVotes=()=>{
-        // console.log("option One votes length is: ", questionsData[questionID].optionOne.votes.length)
         return questionsData[questionID].optionOne.votes.length
     }
 
     const optionTwoVotes=()=>{
-        // console.log("option two votes length is: ", questionsData[questionID].optionTwo.votes.length)
         return questionsData[questionID].optionTwo.votes.length
     }
 
     useEffect(()=>{
-        console.log("!!!!!!!!!!!loggedUserID", loggedUserID[0]);
-        console.log("!!!!!!!!!!!typeof", typeof loggedUserID[0]);
-        console.log("!!!!!!!!!!!questionsData[questionID]", questionsData[questionID]);
-        console.log("!!!!!!!!!!!votes", questionsData[questionID].optionOne.votes);
-        console.log("!!!!!!!!!!!optionOne.votes", questionsData[questionID].optionOne.votes.includes(loggedUserID[0]));
-        console.log("!!!!!!!!!!!optionTwo.votes", questionsData[questionID].optionTwo.votes.includes(loggedUserID[0]));
         optionOneVotes();
         optionTwoVotes();        
 
