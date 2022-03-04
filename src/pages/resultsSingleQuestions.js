@@ -1,59 +1,38 @@
 import { useEffect } from "react"
-import {  useSelector, useDispatch } from "react-redux";
-// import "../style/allBoxes.css";
+import {  useSelector } from "react-redux";
 import "../style/main.css"
 import Header from "../elements/header";
 import PercentageBar from "../elements/percentageBar";
-// import { getInitQuestions, getInitUsers } from "../dataConnect/dateMiddleLink";
-// import { usersInState } from "../Actions";
-
 
 
 const SingleQResults = () => {
     const questionsData = useSelector(state=> state.getQuestions)
     const questionID = useSelector(state=> state.questionID)
     const users = useSelector(state=> state.getUsers)
-    // const dispatch = useDispatch();
-    // let totalVotes;
+    const loggedUserID = useSelector(state=> state.logID);
 
   
-
     const optionOneVotes=()=>{
-        console.log("option One votes length is: ", questionsData[questionID].optionOne.votes.length)
+        // console.log("option One votes length is: ", questionsData[questionID].optionOne.votes.length)
         return questionsData[questionID].optionOne.votes.length
-
     }
 
     const optionTwoVotes=()=>{
-        console.log("option two votes length is: ", questionsData[questionID].optionTwo.votes.length)
+        // console.log("option two votes length is: ", questionsData[questionID].optionTwo.votes.length)
         return questionsData[questionID].optionTwo.votes.length
-
     }
 
     useEffect(()=>{
+        console.log("!!!!!!!!!!!loggedUserID", loggedUserID[0]);
+        console.log("!!!!!!!!!!!typeof", typeof loggedUserID[0]);
+        console.log("!!!!!!!!!!!questionsData[questionID]", questionsData[questionID]);
+        console.log("!!!!!!!!!!!votes", questionsData[questionID].optionOne.votes);
+        console.log("!!!!!!!!!!!optionOne.votes", questionsData[questionID].optionOne.votes.includes(loggedUserID[0]));
+        console.log("!!!!!!!!!!!optionTwo.votes", questionsData[questionID].optionTwo.votes.includes(loggedUserID[0]));
         optionOneVotes();
-        optionTwoVotes();
-        // getInitUsers()
-        // .then(users=>{
-        //     dispatch(usersInState(users));
-            // setUsers(users);
-            // console.log("users!!!!!!!!!!!!!!", users)
-        // })
-        // totalVotes = (optionOneVotes() + optionTwoVotes())
-        
+        optionTwoVotes();        
 
     }, [])
-
-    // const totalVotes = useCallback(()=>{
-    //     const totalVotes = optionOneVotes() + optionTwoVotes();
-    //     console.log("total votes are: ", totalVotes);
-
-    // }, [optionOneVotes, optionTwoVotes])
-
-    // const calculateTotalVotes = useCallback(()=>{
-    //     const totalVotes = optionOneVotes() + optionTwoVotes()
-
-    // }, [optionOneVotes, optionTwoVotes])
     
     return (
         <div>
@@ -62,19 +41,16 @@ const SingleQResults = () => {
                 <h4>asked by: {users[questionsData[questionID].author].name} </h4>
                 <h1>Results</h1>
                 <div className="avatarHolder"> 
-                    <img id="userAvatar" src={users[questionsData[questionID].author].avatarURL} alt="a random user avatar"/>
+                    <img className="userAvatar" src={users[questionsData[questionID].author].avatarURL} alt="a random user avatar"/>
                 </div>
-                {/* you need an active class to be telling you what your answer is */}
-                <div>
-                    <h5>{questionsData[questionID].optionOne.text}</h5>
-                    <p>results stats</p>
+                <div className={(questionsData[questionID].optionOne.votes.includes(loggedUserID[0]))? "userUnswer" :""}>
+                    <h5> 1. {questionsData[questionID].optionOne.text}</h5>
                     <PercentageBar totalVotes={optionOneVotes() + optionTwoVotes()} questionVotes={optionOneVotes()}/>
                     <p>{optionOneVotes()} out of {optionOneVotes() + optionTwoVotes()} votes</p>
 
                 </div>
-                <div>
-                    <h5>{questionsData[questionID].optionTwo.text}</h5>
-                    <p>result stats</p>
+                <div className={(questionsData[questionID].optionTwo.votes.includes(loggedUserID[0]))? "userUnswer" :""}>
+                    <h5> 2. {questionsData[questionID].optionTwo.text}</h5>
                     <PercentageBar totalVotes={optionOneVotes() + optionTwoVotes()} questionVotes={optionTwoVotes()}/>
                     <p>{optionTwoVotes()} out of {optionOneVotes() + optionTwoVotes()} votes</p>
 

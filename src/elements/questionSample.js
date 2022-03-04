@@ -9,17 +9,14 @@ const QuestionSample = ({ question }) => {
     
     const questionsData = useSelector(state=> state.getQuestions)
     const users = useSelector(state=> state.getUsers)
-    const loggedUserID = useSelector(state=> state.logID)
     const dispatch = useDispatch();
     const questionToUse = Object.values(question);
     
-    // let questionAnswered = Object.keys(users[loggedUserID].answers).includes(props.question);
-
     // useEffect(()=>{
         // console.log("displayState",displayState);///////////////
-        console.log("!!!!!!!!!!!!!!!!!!question", question);//////////////////
+        // console.log("!!!!!!!!!!!!!!!!!!question", question);//////////////////
         // console.log("answeredQuestions", answeredQuestions);////////////////
-        console.log("questionToUse", questionToUse);////////////////
+        // console.log("questionToUse", questionToUse);////////////////
 
     // }, [])
 

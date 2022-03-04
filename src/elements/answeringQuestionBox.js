@@ -10,18 +10,18 @@ const QuestionBox = () => {
     const questionsData = useSelector(state=> state.getQuestions);
     const questionID = useSelector(state=> state.questionID);
     const users = useSelector(state=> state.getUsers);
-    const partID = useSelector(state=> state.logID);
+    const loggedUserID = useSelector(state=> state.logID);
     let navigate = useNavigate();
     const dispatch = useDispatch();
     const [answer, setAnswer] = useState("");
     const [checked, setChecked] = useState({optionOneChecked: false, optionTwoChecked: false});
-    let questionAnswered = Object.keys(users[partID].answers).includes(questionID);
+    let questionAnswered = Object.keys(users[loggedUserID].answers).includes(questionID);
    
 
     const updatingTheState = () => {
-        _saveQuestionAnswer ({ authedUser: partID, qid: questionID, answer: answer });
-        dispatch(saveNewAnswer({ authedUser: partID, qid: questionID, answer: answer }))
-        dispatch(saveUserNewAnswer({ authedUser: partID, qid: questionID, answer: answer })); 
+        _saveQuestionAnswer ({ authedUser: loggedUserID, qid: questionID, answer: answer });
+        dispatch(saveNewAnswer({ authedUser: loggedUserID, qid: questionID, answer: answer }))
+        dispatch(saveUserNewAnswer({ authedUser: loggedUserID, qid: questionID, answer: answer })); 
     }
 
     const returningAnswer = (event) => {
@@ -34,6 +34,7 @@ const QuestionBox = () => {
 
     return(
         <div className="main_card_style answering_questions_box">
+            <h2>Would you Rather</h2>
             <div className="avatarHolder"> 
                 <img className="userAvatar" src={users[questionsData[questionID].author].avatarURL} alt="a random user avatar"/>
             </div>

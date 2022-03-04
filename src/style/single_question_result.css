@@ -3,3 +3,9 @@
     margin: auto;
     margin-top: 60px;
 }
+
+.userUnswer{
+    border: solid salmon;
+    border-radius: 40px;
+    padding: 0.4em;
+}
