@@ -11,21 +11,26 @@ const GamePage = ({ questionId }) => {
     const users = useSelector(state=> state.getUsers)
     const stateUserId = useSelector(state=> state.logID)
     const localStUserId = localStorage.getItem("login_id");
-    const partID = () => { return stateUserId? stateUserId: localStUserId }
+    const partID = () => stateUserId? stateUserId: localStUserId;
     const questionsData = useSelector(state=> state.getQuestions)
     
     
     useEffect(()=>{
         console.log("localStUserId", localStUserId);
+        console.log("users", users);
+        console.log("stateUserId", stateUserId);
+        console.log("localStUserId", localStUserId);
+        console.log("partID", partID());
+
        
-            Object.values(questionsData).map(question=>(
-                question.optionOne.votes.includes(users[partID].id) || question.optionTwo.votes.includes(users[partID].id)? 
-                    (question["answered"]= true,
-                    answeredQuestionsPrep.push(question))
-                    :
-                    (question["unanswered"]= false,
-                    unansweredQuestionsPrep.push(question))
-            ));
+            // Object.values(questionsData).map(question=>(
+            //     question.optionOne.votes.includes(users[partID()].id) || question.optionTwo.votes.includes(users[partID()].id)? 
+            //         (question["answered"]= true,
+            //         answeredQuestionsPrep.push(question))
+            //         :
+            //         (question["unanswered"]= false,
+            //         unansweredQuestionsPrep.push(question))
+            // ));
             unansweredQuestionsPrep.sort((a,b)=> b.timestamp -a.timestamp)
             answeredQuestionsPrep.sort((a,b)=> b.timestamp - a.timestamp)
 
