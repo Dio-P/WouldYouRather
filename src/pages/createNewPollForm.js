@@ -56,10 +56,10 @@ const CreateQuestionForm =() => {
             <Header/>
             <h2 className="would_you_rather_title">Would you rather</h2>
             <div className="main_card_style add_question_card_style" >
-                <label for="opt1">Option One Text</label>  
+                <label htmlFor="opt1">Option One Text</label>  
                 <input type="text" name="opt1" value={optionOneText} onChange={event=>setOptionOneText(event.target.value)}/>
         
-                <label for="opt2">Option Two Text</label>
+                <label htmlFor="opt2">Option Two Text</label>
                 <input type="text" name="opt2" value={optionTwoText} onChange={event=>setOptionTwoText(event.target.value)}/>
                 
                 <button className="main_button_style" id="newQuestionFormSubmitButton" type="submit" value="submit" onClick={ formSubmit}>Answer</button>
