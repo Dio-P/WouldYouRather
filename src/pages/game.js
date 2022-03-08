@@ -9,11 +9,14 @@ const GamePage = ({ questionId }) => {
     const [answeredQuestions, setAnsweredQuestions] = useState([])
     const answeredQuestionsPrep = []
     const users = useSelector(state=> state.getUsers)
-    const partID = useSelector(state=> state.logID)
+    const stateUserId = useSelector(state=> state.logID)
+    const localStUserId = localStorage.getItem("login_id");
+    const partID = () => { return stateUserId? stateUserId: localStUserId }
     const questionsData = useSelector(state=> state.getQuestions)
     
     
     useEffect(()=>{
+        console.log("localStUserId", localStUserId);
        
             Object.values(questionsData).map(question=>(
                 question.optionOne.votes.includes(users[partID].id) || question.optionTwo.votes.includes(users[partID].id)? 

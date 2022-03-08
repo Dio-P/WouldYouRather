@@ -16,12 +16,15 @@ const Header = () => {
     const logedOrNot = useSelector(state=> state.isLogged)
     const dispatch = useDispatch();
 
-
+    const handleLogOff = () => {
+        dispatch(signIn());
+        localStorage.clear();
+    }
 
     return(
         <div id="header">
             {(logedOrNot===true)?  
-            (<div> You are loged on as {users[partID].name} <button id="logOnOffBtn" onClick={()=>dispatch(signIn())}>Log Off</button> </div>)
+            (<div> You are loged on as {users[partID].name} <button id="logOnOffBtn" onClick={handleLogOff}>Log Off</button> </div>)
             :
             <button id="logOnOffBtn">Log In</button>}
             <Link to="/home"><button className="main_button_style many_buttons_relation"> Home </button></Link>

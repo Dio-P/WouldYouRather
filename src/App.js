@@ -31,10 +31,12 @@ function App() {
 
   // const counter = useSelector(state=> state.counter);
   const loggedIn = useSelector(state=> state.isLogged);
+  const localStLoged = localStorage.getItem("logedIn");
   // const users = useSelector(state=> state.getUsers);
   // const loading= useSelector(state=> state.loading);
   let navigate = useNavigate();
   const dispatch = useDispatch();
+
 
   useEffect(()=>{
     getInitQuestions()
@@ -45,14 +47,14 @@ function App() {
   },[])
 
   useEffect(()=>{
-    return loggedIn? navigate("/home")
+    return (loggedIn || localStLoged)? navigate("/home")
     : navigate("/") 
   }, [loggedIn])
 
   const ProtectedRoutes=() => {
-    if(loggedIn){
+    if(loggedIn || localStLoged){
       return <Outlet/>
-    }else if(loggedIn===false){
+    }else if(loggedIn===false || !localStLoged){
       return <LogInPage/>
     }
   };
@@ -70,7 +72,7 @@ function App() {
           <Route path="/home" element={<GamePage 
             questionId={(questionID)=> setQuestionId(questionID)}
             />}/>
-          <Route path="leaderboard" element={<LeaderboardPage/>}/>
+          <Route path="/leaderboard" element={<LeaderboardPage/>}/>
           <Route path="/add" element={<CreateQuestionForm/>}/>
           <Route path="/question/:question_id" element={<SinglePageQuestion question={questionId}/>}/>
           <Route path="/results" element={<SingleQResults/>}/>
