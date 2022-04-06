@@ -1,33 +1,36 @@
-import {useState, useEffect} from "react"
+import { useState, useEffect } from "react"
 import {  useSelector } from "react-redux";
 import Header from "../elements/header";
 import HomeBoxHolder from "../elements/homeQuestionBoxesHolder";
 
 const GamePage = ({ questionId }) => {
     const [unansweredQuestions, setUnansweredQuestions] = useState([]);
-    const unansweredQuestionsPrep = [];
     const [answeredQuestions, setAnsweredQuestions] = useState([])
-    const answeredQuestionsPrep = []
     const users = useSelector(state=> state.getUsers)
     const partID = useSelector(state=> state.logID)
     const questionsData = useSelector(state=> state.getQuestions)
     
     
     useEffect(()=>{
+        const answeredQuestionsPrep = []
+        const unansweredQuestionsPrep = [];
+
        
             Object.values(questionsData).map(question=>(
                 question.optionOne.votes.includes(users[partID].id) || question.optionTwo.votes.includes(users[partID].id)? 
                     (question["answered"]= true,
                     answeredQuestionsPrep.push(question))
                     :
-                    (question["unanswered"]= false,
+                    (question["answered"]= false,
                     unansweredQuestionsPrep.push(question))
             ));
-            unansweredQuestionsPrep.sort((a,b)=> b.timestamp -a.timestamp)
-            answeredQuestionsPrep.sort((a,b)=> b.timestamp - a.timestamp)
+            const unansweredQuestionsShorted = unansweredQuestionsPrep.sort((a,b)=> b.timestamp -a.timestamp)
+            const answeredQuestionsShorted = answeredQuestionsPrep.sort((a,b)=> b.timestamp - a.timestamp)
+            console.log("unansweredQuestionsPrep After Sorting", unansweredQuestionsShorted);//////////////
 
-            setUnansweredQuestions(unansweredQuestionsPrep);
-            setAnsweredQuestions(answeredQuestionsPrep);
+
+            setUnansweredQuestions(unansweredQuestionsShorted);
+            setAnsweredQuestions(answeredQuestionsShorted);
 },[])
 
     return(

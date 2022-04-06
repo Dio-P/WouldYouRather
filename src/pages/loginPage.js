@@ -11,7 +11,6 @@ const LogInPage= () => {
     const login = (event) =>{
         event.preventDefault()
         loginID= event.target.value;
-        console.log("loginID", loginID)
         dispatch(login_id(loginID))
         dispatch(signIn())
     }

@@ -19,9 +19,10 @@ const QuestionBox = () => {
    
 
     const updatingTheState = () => {
-        _saveQuestionAnswer ({ authedUser: loggedUserID, qid: questionID, answer: answer });
-        dispatch(saveNewAnswer({ authedUser: loggedUserID, qid: questionID, answer: answer }))
-        dispatch(saveUserNewAnswer({ authedUser: loggedUserID, qid: questionID, answer: answer })); 
+        _saveQuestionAnswer ({ authedUser: loggedUserID[0], qid: questionID, answer: answer });
+        console.log("loggedUserID", loggedUserID[0], "questionID", questionID, "answer", answer);///////////////////
+        dispatch(saveNewAnswer({ authedUser: loggedUserID[0], qid: questionID, answer: answer }))
+        dispatch(saveUserNewAnswer({ authedUser: loggedUserID[0], qid: questionID, answer: answer })); 
     }
 
     const returningAnswer = (event) => {

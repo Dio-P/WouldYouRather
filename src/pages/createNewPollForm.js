@@ -42,7 +42,11 @@ const CreateQuestionForm =() => {
   const formSubmit = () => {
     
         const question = {optionOneText, optionTwoText, author: auth}
+        console.log("auth", auth);/////////////////
+        console.log("optionOneText", optionOneText);/////////////////
+        console.log("optionTwoText", optionTwoText);/////////////////
         const formattedQuestion = formatQuestion({optionOneText, optionTwoText, author: auth})
+        console.log("formattedQuestion", formattedQuestion);////////////////
         dispatch(savingNewQuestion(formattedQuestion))
         dispatch(updatingNewQuestionUserCreated({auth, formattedQuestion}));
         _saveQuestion(question);

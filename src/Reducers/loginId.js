@@ -4,8 +4,6 @@ const logID=(state=[], action)=> {
             return state
             
         case "LOGIN_AS":
-            console.log("action", action)
-            console.log("state", state) 
         return [action.payload]
         
         default: {
